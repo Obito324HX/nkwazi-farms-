@@ -271,7 +271,9 @@
   }
   .lightbox.open{display:flex;}
   .lightbox-frame{position:relative;max-width:1000px;width:100%;}
-  .lightbox-frame img{width:100%;max-height:78vh;object-fit:contain;border-radius:2px;}
+  .lightbox-frame img{width:100%;max-height:78vh;object-fit:contain;border-radius:2px;
+    transition:opacity .25s ease, filter .3s ease;}
+  .lightbox-frame img.loading{opacity:0.85;filter:blur(6px);}
   .lightbox-cap{color:var(--cream);text-align:center;margin-top:14px;font-size:14px;opacity:0.8;}
   .lb-close, .lb-prev, .lb-next{
     position:absolute;background:none;border:none;color:var(--cream);
@@ -540,9 +542,18 @@
   }
   function updateLightbox(){
     const photo = galleryPhotos[currentIndex];
-    lbImage.src = photo.src;
+    const thumb = photo.src.replace('w=1400', 'w=500');
+    lbImage.src = thumb;
     lbImage.alt = photo.caption;
+    lbImage.classList.add('loading');
     lbCaption.textContent = photo.caption;
+
+    const fullRes = new Image();
+    fullRes.onload = () => {
+      lbImage.src = photo.src;
+      lbImage.classList.remove('loading');
+    };
+    fullRes.src = photo.src;
   }
   function closeLightbox(){ lightbox.classList.remove('open'); }
   function showNext(){ currentIndex = (currentIndex + 1) % galleryPhotos.length; updateLightbox(); }
