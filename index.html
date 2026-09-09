@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nkwazi Farms grows maize, vegetables and orchard fruit alongside cattle and poultry on the outskirts of Lusaka, Zambia. Wholesale and market supply.">
+<meta property="og:title" content="Nkwazi Farms: Grown and Raised in Zambia">
+<meta property="og:description" content="Crops and livestock farmed as one system on the outskirts of Lusaka, Zambia.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80">
+<title>Nkwazi Farms: Grown and Raised in Zambia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --loam:#2E2A1F;
+    --clay:#B5542B;
+    --gold:#D9A54A;
+    --maize:#F3EAD6;
+    --olive:#48542F;
+    --cream:#FAF6EE;
+    --line: rgba(46,42,31,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    background:var(--cream);
+    color:var(--loam);
+    line-height:1.55;
+  }
+  h1,h2,h3,.wordmark{font-family:'Fraunces', serif;}
+  img{display:block;width:100%;height:100%;object-fit:cover;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:20;
+    background:var(--cream);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 32px;max-width:1180px;margin:0 auto;
+  }
+  .wordmark{font-size:22px;font-weight:600;letter-spacing:0.2px;}
+  .wordmark span{color:var(--clay);}
+  .navlinks{display:flex;gap:34px;font-size:15px;}
+  .navlinks a{opacity:0.8;transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--loam);color:var(--cream);
+    padding:10px 20px;border-radius:3px;font-size:14px;font-weight:500;
+  }
+  .nav-right{display:flex;align-items:center;gap:20px;}
+  .social-row{display:flex;align-items:center;gap:14px;}
+  .social-row a{
+    width:34px;height:34px;border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0.75;transition:opacity .2s, border-color .2s;
+  }
+  .social-row a:hover{opacity:1;border-color:var(--loam);}
+  .social-row svg{width:16px;height:16px;fill:var(--loam);}
+
+  /* HERO */
+  .hero{
+    display:grid;grid-template-columns:1.05fr 0.95fr;
+    align-items:stretch;min-height:640px;
+  }
+  .hero-text{
+    display:flex;flex-direction:column;justify-content:center;
+    padding:60px 60px 60px 32px;max-width:560px;margin-left:auto;
+  }
+  .eyebrow{color:var(--olive);font-size:14px;font-weight:500;margin-bottom:18px;}
+  .hero-text h1{
+    font-size:52px;font-weight:500;line-height:1.08;letter-spacing:-0.5px;
+    margin-bottom:24px;
+  }
+  .hero-text p{font-size:17px;max-width:460px;opacity:0.85;margin-bottom:32px;}
+  .hero-actions{display:flex;gap:16px;}
+  .btn-primary{
+    background:var(--clay);color:var(--cream);padding:14px 26px;
+    border-radius:3px;font-weight:500;font-size:15px;
+  }
+  .btn-secondary{
+    border:1px solid var(--loam);padding:14px 26px;border-radius:3px;
+    font-weight:500;font-size:15px;
+  }
+  .hero-img{position:relative;overflow:hidden;}
+  .hero-img img{
+    width:100%;height:100%;
+    object-position:center 40%;
+  }
+
+  /* STORY / INTRO */
+  .intro{
+    padding:110px 32px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:80px;
+    max-width:1180px;margin:0 auto;align-items:start;
+  }
+  .intro h2{font-size:34px;font-weight:500;line-height:1.2;}
+  .intro-copy p{font-size:16px;opacity:0.85;margin-bottom:18px;max-width:480px;}
+  .intro-copy p:last-child{margin-bottom:0;}
+
+  /* PRODUCE + LIVESTOCK: asymmetric tiles, not identical cards */
+  .section-head{
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:40px;
+  }
+  .section-head h2{font-size:30px;font-weight:500;}
+  .section-head p{font-size:15px;opacity:0.7;max-width:320px;text-align:right;}
+
+  .produce{padding:70px 0 40px;background:var(--maize);}
+  .tile-grid{
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  }
+  .tile{
+    position:relative;aspect-ratio:4/5;overflow:hidden;
+  }
+  .tile:first-child{grid-row:span 2;aspect-ratio:auto;}
+  .tile-label{
+    position:absolute;bottom:0;left:0;right:0;
+    padding:22px 22px 20px;
+    background:linear-gradient(to top, rgba(20,17,10,0.72), transparent);
+    color:#fff;
+  }
+  .tile-label .name{font-family:'Fraunces',serif;font-size:19px;font-weight:500;}
+  .tile-label .tag{font-size:13px;opacity:0.85;margin-top:2px;}
+
+  .livestock{padding:100px 0;}
+  .stock-row{
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .stock-img{aspect-ratio:6/5;overflow:hidden;border-radius:3px;}
+  .stock-copy h3{font-size:26px;font-weight:500;margin-bottom:16px;}
+  .stock-copy p{font-size:15.5px;opacity:0.85;margin-bottom:22px;max-width:440px;}
+  .stock-list{list-style:none;font-size:14.5px;}
+  .stock-list li{
+    padding:10px 0;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;
+  }
+  .stock-list li:last-child{border-bottom:1px solid var(--line);}
+
+  /* CYCLE: genuinely sequential, numbering earned here */
+  .cycle{background:var(--loam);color:var(--cream);padding:100px 32px;}
+  .cycle-inner{max-width:1180px;margin:0 auto;}
+  .cycle-head{max-width:520px;margin-bottom:60px;}
+  .cycle-head h2{font-size:30px;font-weight:500;color:var(--cream);}
+  .cycle-head p{opacity:0.65;margin-top:14px;font-size:15px;}
+  .cycle-steps{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    border-top:1px solid rgba(250,246,238,0.18);
+  }
+  .step{padding:30px 24px 0 0;border-right:1px solid rgba(250,246,238,0.18);}
+  .step:last-child{border-right:none;}
+  .step .num{font-size:14px;color:var(--gold);margin-bottom:14px;}
+  .step h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:10px;}
+  .step p{font-size:14px;opacity:0.65;max-width:220px;}
+
+  /* VALUES / SUSTAINABILITY */
+  .values{
+    padding:100px 32px;max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:0.8fr 1.2fr;gap:70px;
+  }
+  .values h2{font-size:30px;font-weight:500;max-width:340px;line-height:1.25;}
+  .value-list{display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;}
+  .value-list h4{font-size:16px;font-weight:600;margin-bottom:8px;}
+  .value-list p{font-size:14.5px;opacity:0.75;}
+
+  /* CONTACT / FOOTER */
+  .contact{
+    background:var(--olive);color:var(--cream);
+    padding:90px 32px 60px;
+  }
+  .contact-inner{
+    max-width:1180px;margin:0 auto;
+    display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;
+    padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.2);
+  }
+  .contact h2{font-size:32px;font-weight:500;max-width:420px;line-height:1.2;color:var(--cream);}
+  .quick-contact{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+  .qc-link{
+    font-size:14.5px;font-weight:500;opacity:0.9;
+    display:inline-flex;align-items:center;gap:6px;
+    border-bottom:1px solid rgba(250,246,238,0.3);padding-bottom:6px;
+    max-width:fit-content;transition:opacity .2s, border-color .2s;
+  }
+  .qc-link:hover{opacity:1;border-color:var(--cream);}
+  .contact-form{display:flex;flex-direction:column;gap:14px;}
+  .contact-form input, .contact-form textarea{
+    background:transparent;border:1px solid rgba(250,246,238,0.35);
+    color:var(--cream);padding:13px 14px;font-family:inherit;font-size:14.5px;
+    border-radius:2px;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:rgba(250,246,238,0.55);}
+  .contact-form button{
+    background:var(--gold);color:var(--loam);border:none;padding:14px;
+    font-weight:600;font-size:14.5px;border-radius:2px;margin-top:4px;cursor:pointer;
+  }
+  .footer-bottom{
+    max-width:1180px;margin:0 auto;padding-top:26px;
+    display:flex;justify-content:space-between;align-items:center;font-size:13px;
+  }
+  .footer-bottom > span{opacity:0.6;}
+  .footer-social{gap:12px;}
+  .footer-social a{
+    width:32px;height:32px;border-color:rgba(250,246,238,0.3);
+  }
+  .footer-social a:hover{border-color:var(--cream);opacity:1;}
+  .footer-social svg{fill:var(--cream);width:15px;height:15px;}
+
+  /* GALLERY */
+  .gallery{padding:100px 0;background:var(--maize);}
+  .gallery-grid{
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  }
+  .gallery-item{
+    position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:2px;
+    cursor:pointer;
+  }
+  .gallery-item img{transition:transform .35s ease;}
+  .gallery-item:hover img{transform:scale(1.05);}
+  .gallery-item .gcap{
+    position:absolute;bottom:0;left:0;right:0;padding:14px 16px;
+    background:linear-gradient(to top, rgba(20,17,10,0.7), transparent);
+    color:#fff;font-size:13px;opacity:0;transition:opacity .2s;
+  }
+  .gallery-item:hover .gcap{opacity:1;}
+
+  /* LIGHTBOX */
+  .lightbox{
+    position:fixed;inset:0;background:rgba(20,17,10,0.94);
+    display:none;align-items:center;justify-content:center;z-index:100;
+    padding:40px;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox-frame{position:relative;max-width:1000px;width:100%;}
+  .lightbox-frame img{width:100%;max-height:78vh;object-fit:contain;border-radius:2px;}
+  .lightbox-cap{color:var(--cream);text-align:center;margin-top:14px;font-size:14px;opacity:0.8;}
+  .lb-close, .lb-prev, .lb-next{
+    position:absolute;background:none;border:none;color:var(--cream);
+    font-size:28px;cursor:pointer;line-height:1;padding:8px;
+  }
+  .lb-close{top:-52px;right:-8px;font-size:22px;}
+  .lb-prev{left:-56px;top:50%;transform:translateY(-50%);font-size:34px;}
+  .lb-next{right:-56px;top:50%;transform:translateY(-50%);font-size:34px;}
+  @media (max-width: 880px){
+    .gallery-grid{grid-template-columns:1fr 1fr;}
+    .lb-prev{left:6px;}
+    .lb-next{right:6px;}
+    .lightbox{padding:20px;}
+  }
+
+  @media (max-width: 880px){
+    .hero{grid-template-columns:1fr;min-height:auto;}
+    .hero-img{height:340px;order:-1;}
+    .hero-text{margin:0;padding:50px 24px;max-width:none;}
+    .navlinks{display:none;}
+    .intro{grid-template-columns:1fr;gap:30px;padding:70px 24px;}
+    .tile-grid{grid-template-columns:1fr 1fr;}
+    .tile:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/9;}
+    .stock-row{grid-template-columns:1fr;gap:30px;}
+    .cycle-steps{grid-template-columns:1fr;}
+    .step{border-right:none;border-bottom:1px solid rgba(250,246,238,0.18);padding-bottom:28px;margin-bottom:28px;}
+    .values{grid-template-columns:1fr;gap:36px;}
+    .value-list{grid-template-columns:1fr 1fr;}
+    .contact-inner{grid-template-columns:1fr;gap:40px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="wordmark">Nkwazi <span>Farms</span></div>
+    <div class="navlinks">
+      <a href="#produce">Produce</a>
+      <a href="#livestock">Livestock</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#cycle">How We Farm</a>
+      <a href="#values">Sustainability</a>
+    </div>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Get in Touch</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Family-run · Lusaka, Zambia</div>
+    <h1>Land worked by hand, herds raised with care.</h1>
+    <p>Three generations growing maize, vegetables and fruit alongside cattle and poultry on the plains outside Lusaka, supplying households, restaurants and markets across the region.</p>
+    <div class="hero-actions">
+      <a href="#produce" class="btn-primary">See What We Grow</a>
+      <a href="#contact" class="btn-secondary">Talk to Us</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80" alt="Golden wheat field at sunset">
+  </div>
+</section>
+
+<section class="intro">
+  <h2>One farm, two disciplines, worked as a single system.</h2>
+  <div class="intro-copy">
+    <p>Nkwazi Farms began as a single maize plot on the outskirts of Lusaka. Today the land is split between open-field crops and grazing pasture, with manure from the herd feeding the soil and crop residue feeding the animals, a cycle rather than two separate businesses.</p>
+    <p>Every harvest and every herd is managed by the same family that started it, with agronomists and livestock officers brought in to keep both sides running to the same standard.</p>
+  </div>
+</section>
+
+<section class="produce" id="produce">
+  <div class="section-head">
+    <h2>What We Grow</h2>
+    <p>Rotated across three plots to keep the soil rested and productive year-round.</p>
+  </div>
+  <div class="tile-grid">
+    <div class="tile">
+      <img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?w=900&q=80" alt="Rows of maize crop">
+      <div class="tile-label"><div class="name">Maize</div><div class="tag">Staple crop, harvested May–June</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?w=700&q=80" alt="Fresh vegetables in crates">
+      <div class="tile-label"><div class="name">Vegetables</div><div class="tag">Tomato, cabbage, onion</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80" alt="Orchard fruit trees">
+      <div class="tile-label"><div class="name">Orchard Fruit</div><div class="tag">Mango and guava</div></div>
+    </div>
+    <div class="tile">
+      <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=700&q=80" alt="Green farmland from above">
+      <div class="tile-label"><div class="name">Groundnuts</div><div class="tag">Rotation crop, soil-restoring</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="livestock" id="livestock">
+  <div class="stock-row">
+    <div class="stock-img">
+      <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=900&q=80" alt="Cattle grazing in open pasture">
+    </div>
+    <div class="stock-copy">
+      <h3>Herd &amp; Flock</h3>
+      <p>Cattle graze open pasture through the dry season, moved between paddocks to let grass recover. Poultry runs alongside on a smaller, faster cycle.</p>
+      <ul class="stock-list">
+        <li><span>Beef cattle</span><span>Paddock-rotated</span></li>
+        <li><span>Dairy cows</span><span>Milked twice daily</span></li>
+        <li><span>Free-range poultry</span><span>Eggs &amp; table birds</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="section-head">
+    <h2>From the Farm</h2>
+    <p>A look at daily work across the fields and the herd. Tap any photo to open it full-size.</p>
+  </div>
+  <div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-frame">
+    <button class="lb-close" id="lbClose">&times;</button>
+    <button class="lb-prev" id="lbPrev">&#8249;</button>
+    <button class="lb-next" id="lbNext">&#8250;</button>
+    <img id="lbImage" src="" alt="">
+    <div class="lightbox-cap" id="lbCaption"></div>
+  </div>
+</div>
+
+<section class="cycle" id="cycle">
+  <div class="cycle-inner">
+    <div class="cycle-head">
+      <h2>How a season moves through the farm</h2>
+      <p>Crop and herd schedules are staggered so labour and equipment are never idle.</p>
+    </div>
+    <div class="cycle-steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h4>Prepare</h4>
+        <p>Soil testing and paddock rest before the first rains.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h4>Plant &amp; Breed</h4>
+        <p>Crops go in as calving and breeding cycles begin.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h4>Grow</h4>
+        <p>Fields are tended while herds rotate through pasture.</p>
+      </div>
+      <div class="step">
+        <div class="num">04</div>
+        <h4>Harvest &amp; Deliver</h4>
+        <p>Produce and livestock move out to market on the same routes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values" id="values">
+  <h2>Farmed with the next season in mind, not just this one.</h2>
+  <div class="value-list">
+    <div>
+      <h4>Soil health</h4>
+      <p>Manure and crop rotation replace most synthetic fertiliser.</p>
+    </div>
+    <div>
+      <h4>Water use</h4>
+      <p>Drip irrigation on vegetable plots cuts water use well below flood methods.</p>
+    </div>
+    <div>
+      <h4>Animal welfare</h4>
+      <p>Open pasture grazing, no confinement feeding.</p>
+    </div>
+    <div>
+      <h4>Local labour</h4>
+      <p>Seasonal and permanent staff drawn from surrounding communities.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div>
+      <h2>Buying wholesale, or want to visit the farm?</h2>
+      <div class="quick-contact">
+        <a href="https://wa.me/260775580799?text=Hi%2C%20I%27m%20interested%20in%20your%20produce%20and%20livestock" target="_blank" rel="noopener" class="qc-link">Chat on WhatsApp &rarr;</a>
+        <a href="https://www.instagram.com/zedforge.zm" target="_blank" rel="noopener" class="qc-link">Follow on Instagram &rarr;</a>
+        <a href="https://www.facebook.com/smith.legends.79" target="_blank" rel="noopener" class="qc-link">Message on Facebook &rarr;</a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <input type="text" placeholder="Your name">
+      <input type="text" placeholder="Phone or email">
+      <textarea rows="3" placeholder="What are you looking for?"></textarea>
+      <button>Send Message</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>Nkwazi Farms, Lusaka, Zambia</span>
+    <div class="social-row footer-social">
+      <a href="https://wa.me/260775580799" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.15L2 22l5.13-1.5a9.9 9.9 0 0 0 4.9 1.3h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11a15.6 15.6 0 0 1-1.63-.6c-2.87-1.24-4.74-4.15-4.88-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.1.2-.16.32-.31.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.34 2.4 1.49.3.15.48.13.66-.05.18-.19.75-.87.95-1.17.2-.3.4-.24.66-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.16 1.43Z"/></svg></a>
+      <a href="https://www.instagram.com/zedforge.zm" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.05.41 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.22a3.72 3.72 0 0 1-.89 1.38c-.42.42-.82.68-1.38.89-.42.17-1.05.36-2.22.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.22-.41a3.72 3.72 0 0 1-1.38-.89 3.72 3.72 0 0 1-.89-1.38c-.17-.42-.36-1.05-.41-2.22C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.22.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.05-.36 2.22-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.15 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.78.39-1.12.73-.34.34-.55.66-.73 1.12-.14.34-.3.86-.34 1.81-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.78.73 1.12.34.34.66.55 1.12.73.34.14.86.3 1.81.34 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.78-.39 1.12-.73.34-.34.55-.66.73-1.12.14-.34.3-.86.34-1.81.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a2.1 2.1 0 0 0-.73-1.12 2.1 2.1 0 0 0-1.12-.73c-.34-.14-.86-.3-1.81-.34-1.24-.06-1.59-.07-4.74-.07Zm0 4.16a4.06 4.06 0 1 1 0 8.12 4.06 4.06 0 0 1 0-8.12Zm0 1.62a2.44 2.44 0 1 0 0 4.88 2.44 2.44 0 0 0 0-4.88Zm5.17-2.98a.98.98 0 1 1-1.96 0 .98.98 0 0 1 1.96 0Z"/></svg></a>
+      <a href="https://www.facebook.com/smith.legends.79" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-7.7h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V5.27C15.9 5.19 14.9 5.1 13.7 5.1c-2.4 0-4.05 1.46-4.05 4.15V11.3H7v3h2.65V22h3.85Z"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const galleryPhotos = [
+    { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=80", caption: "First light over the maize plots" },
+    { src: "https://images.unsplash.com/photo-1595475207225-428b62bda831?w=1400&q=80", caption: "Rows ready ahead of the June harvest" },
+    { src: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?w=1400&q=80", caption: "Herd moved to fresh paddock" },
+    { src: "https://images.unsplash.com/photo-1518843875459-f738682238a6?w=1400&q=80", caption: "Vegetable crates ahead of market day" },
+    { src: "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=1400&q=80", caption: "Preparing ground before the rains" },
+    { src: "https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=1400&q=80", caption: "Orchard rows in early fruit" },
+    { src: "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=1400&q=80", caption: "Groundnut plots from the ridge road" },
+    { src: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1400&q=80", caption: "Checking soil ahead of planting" }
+  ];
+
+  const grid = document.getElementById('galleryGrid');
+  galleryPhotos.forEach((photo, i) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
+    item.innerHTML = `<img src="${photo.src.replace('w=1400','w=500')}" alt="${photo.caption}">
+      <div class="gcap">${photo.caption}</div>`;
+    item.addEventListener('click', () => openLightbox(i));
+    grid.appendChild(item);
+  });
+
+  const lightbox = document.getElementById('lightbox');
+  const lbImage = document.getElementById('lbImage');
+  const lbCaption = document.getElementById('lbCaption');
+  let currentIndex = 0;
+
+  function openLightbox(index){
+    currentIndex = index;
+    updateLightbox();
+    lightbox.classList.add('open');
+  }
+  function updateLightbox(){
+    const photo = galleryPhotos[currentIndex];
+    lbImage.src = photo.src;
+    lbImage.alt = photo.caption;
+    lbCaption.textContent = photo.caption;
+  }
+  function closeLightbox(){ lightbox.classList.remove('open'); }
+  function showNext(){ currentIndex = (currentIndex + 1) % galleryPhotos.length; updateLightbox(); }
+  function showPrev(){ currentIndex = (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length; updateLightbox(); }
+
+  document.getElementById('lbClose').addEventListener('click', closeLightbox);
+  document.getElementById('lbNext').addEventListener('click', showNext);
+  document.getElementById('lbPrev').addEventListener('click', showPrev);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowRight') showNext();
+    if(e.key === 'ArrowLeft') showPrev();
+  });
+</script>
+</body>
+</html>
