@@ -223,6 +223,10 @@
     background:var(--gold);color:var(--loam);border:none;padding:14px;
     font-weight:600;font-size:14.5px;border-radius:2px;margin-top:4px;cursor:pointer;
   }
+  .contact-form button:disabled{opacity:0.6;cursor:not-allowed;}
+  .form-status{font-size:13.5px;margin-top:4px;min-height:18px;}
+  .form-status.ok{color:var(--gold);}
+  .form-status.err{color:#e08a6a;}
   .footer-bottom{
     max-width:1180px;margin:0 auto;padding-top:26px;
     display:flex;justify-content:space-between;align-items:center;font-size:13px;
@@ -550,12 +554,13 @@
         <a href="https://www.facebook.com/smith.legends.79" target="_blank" rel="noopener" class="qc-link">Message on Facebook &rarr;</a>
       </div>
     </div>
-    <div class="contact-form">
-      <input type="text" placeholder="Your name">
-      <input type="text" placeholder="Phone or email">
-      <textarea rows="3" placeholder="What are you looking for?"></textarea>
-      <button>Send Message</button>
-    </div>
+    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xbgjqwak" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="text" name="contact" placeholder="Phone or email" required>
+      <textarea rows="3" name="message" placeholder="What are you looking for?" required></textarea>
+      <button type="submit">Send Message</button>
+      <p class="form-status" id="formStatus"></p>
+    </form>
   </div>
 </section>
 
@@ -648,6 +653,35 @@
     if(e.key === 'Escape') closeLightbox();
     if(e.key === 'ArrowRight') showNext();
     if(e.key === 'ArrowLeft') showPrev();
+  });
+
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector('button');
+    submitBtn.disabled = true;
+    formStatus.textContent = 'Sending...';
+    formStatus.className = 'form-status';
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        formStatus.textContent = "Thanks, we've received your message and will be in touch soon.";
+        formStatus.className = 'form-status ok';
+        contactForm.reset();
+      } else {
+        formStatus.textContent = 'Something went wrong. Please try WhatsApp instead.';
+        formStatus.className = 'form-status err';
+      }
+    } catch (err) {
+      formStatus.textContent = 'Network error. Please try WhatsApp instead.';
+      formStatus.className = 'form-status err';
+    }
+    submitBtn.disabled = false;
   });
 </script>
 </body>
