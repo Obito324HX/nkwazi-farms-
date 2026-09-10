@@ -45,7 +45,7 @@
   }
   .wordmark{font-size:22px;font-weight:600;letter-spacing:0.2px;}
   .wordmark span{color:var(--clay);}
-  .navlinks{display:flex;gap:34px;font-size:15px;}
+  .navlinks{display:flex;gap:24px;font-size:14px;}
   .navlinks a{opacity:0.8;transition:opacity .2s;}
   .navlinks a:hover{opacity:1;}
   .nav-cta{
@@ -151,11 +151,12 @@
   .cycle-head h2{font-size:30px;font-weight:500;color:var(--cream);}
   .cycle-head p{opacity:0.65;margin-top:14px;font-size:15px;}
   .cycle-steps{
-    display:grid;grid-template-columns:repeat(4,1fr);
+    display:grid;grid-template-columns:repeat(3,1fr);
     border-top:1px solid rgba(250,246,238,0.18);
   }
-  .step{padding:30px 24px 0 0;border-right:1px solid rgba(250,246,238,0.18);}
-  .step:last-child{border-right:none;}
+  .step{padding:30px 24px 30px 0;border-right:1px solid rgba(250,246,238,0.18);border-bottom:1px solid rgba(250,246,238,0.18);}
+  .step:nth-child(3n){border-right:none;}
+  .step:nth-child(n+4){border-bottom:none;}
   .step .num{font-size:14px;color:var(--gold);margin-bottom:14px;}
   .step h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:10px;}
   .step p{font-size:14px;opacity:0.65;max-width:220px;}
@@ -163,12 +164,34 @@
   /* VALUES / SUSTAINABILITY */
   .values{
     padding:100px 32px;max-width:1180px;margin:0 auto;
-    display:grid;grid-template-columns:0.8fr 1.2fr;gap:70px;
   }
-  .values h2{font-size:30px;font-weight:500;max-width:340px;line-height:1.25;}
-  .value-list{display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;}
+  .values-head{max-width:620px;margin-bottom:50px;}
+  .values-head h2{font-size:30px;font-weight:500;line-height:1.25;}
+  .values-head p{margin-top:14px;opacity:0.7;font-size:15px;}
+  .cert-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:60px;}
+  .cert-badge{
+    border:1px solid var(--line);border-radius:4px;padding:16px 20px;
+    display:flex;flex-direction:column;gap:6px;flex:1 1 190px;
+  }
+  .cert-mark{font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--clay);letter-spacing:0.3px;}
+  .cert-badge span{font-size:12.5px;opacity:0.65;line-height:1.4;}
+  .value-list{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 32px;}
   .value-list h4{font-size:16px;font-weight:600;margin-bottom:8px;}
   .value-list p{font-size:14.5px;opacity:0.75;}
+
+  /* CASE STUDIES */
+  .cases{padding:100px 0;background:var(--maize);}
+  .case-grid{
+    max-width:1180px;margin:0 auto;padding:0 32px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .case-card{
+    background:var(--cream);border:1px solid var(--line);border-radius:4px;
+    padding:32px 28px;
+  }
+  .case-stat{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--clay);margin-bottom:14px;}
+  .case-card h4{font-size:17px;font-weight:600;margin-bottom:10px;}
+  .case-card p{font-size:14.5px;opacity:0.75;}
 
   /* CONTACT / FOOTER */
   .contact{
@@ -300,7 +323,8 @@
     .stock-row{grid-template-columns:1fr;gap:30px;}
     .cycle-steps{grid-template-columns:1fr;}
     .step{border-right:none;border-bottom:1px solid rgba(250,246,238,0.18);padding-bottom:28px;margin-bottom:28px;}
-    .values{grid-template-columns:1fr;gap:36px;}
+    .value-list{grid-template-columns:1fr 1fr;}
+    .case-grid{grid-template-columns:1fr;}
     .value-list{grid-template-columns:1fr 1fr;}
     .contact-inner{grid-template-columns:1fr;gap:40px;}
   }
@@ -315,8 +339,9 @@
       <a href="#produce">Produce</a>
       <a href="#livestock">Livestock</a>
       <a href="#gallery">Gallery</a>
-      <a href="#cycle">How We Farm</a>
-      <a href="#values">Sustainability</a>
+      <a href="#cycle">Our Process</a>
+      <a href="#work">Our Work</a>
+      <a href="#values">Quality &amp; Standards</a>
     </div>
     <div class="nav-right">
       <a href="#contact" class="nav-cta">Get in Touch</a>
@@ -355,18 +380,18 @@
   <div class="tile-grid">
     <div class="tile">
       <img src="https://images.unsplash.com/photo-1595475207225-428b62bda831?w=900&q=80" alt="Rows of maize crop">
-      <div class="tile-label"><div class="name">Maize</div><div class="tag">Staple crop, harvested May–June</div></div>
+      <div class="tile-label"><div class="name">Maize</div><div class="tag">Staple crop, harvested May to June</div></div>
     </div>
     <div class="tile">
-      <img src="https://images.unsplash.com/photo-1518843875459-f738682238a6?w=700&q=80" alt="Fresh vegetables in crates">
-      <div class="tile-label"><div class="name">Vegetables</div><div class="tag">Tomato, cabbage, onion</div></div>
+      <img src="https://images.unsplash.com/photo-1596097635121-14b63b7a0c19?w=700&q=80" alt="Freshly harvested sweet potatoes">
+      <div class="tile-label"><div class="name">Sweet Potatoes</div><div class="tag">Two harvests a year</div></div>
     </div>
     <div class="tile">
-      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=80" alt="Orchard fruit trees">
-      <div class="tile-label"><div class="name">Orchard Fruit</div><div class="tag">Mango and guava</div></div>
+      <img src="https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=700&q=80" alt="Fresh cabbage heads">
+      <div class="tile-label"><div class="name">Cabbage</div><div class="tag">Grown for local markets</div></div>
     </div>
     <div class="tile">
-      <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?w=700&q=80" alt="Green farmland from above">
+      <img src="https://images.unsplash.com/photo-1567892737950-30c4db37cd89?w=700&q=80" alt="Harvested groundnuts">
       <div class="tile-label"><div class="name">Groundnuts</div><div class="tag">Rotation crop, soil-restoring</div></div>
     </div>
   </div>
@@ -410,36 +435,91 @@
 <section class="cycle" id="cycle">
   <div class="cycle-inner">
     <div class="cycle-head">
-      <h2>How a season moves through the farm</h2>
-      <p>Crop and herd schedules are staggered so labour and equipment are never idle.</p>
+      <h2>Our Process: From Field to Delivery</h2>
+      <p>Every batch, whether crop or livestock, moves through the same six checkpoints before it leaves the farm.</p>
     </div>
     <div class="cycle-steps">
       <div class="step">
         <div class="num">01</div>
-        <h4>Prepare</h4>
-        <p>Soil testing and paddock rest before the first rains.</p>
+        <h4>Soil &amp; Paddock Prep</h4>
+        <p>Soil testing and paddock rest before the first rains, guided by an agronomist's recommendations.</p>
       </div>
       <div class="step">
         <div class="num">02</div>
-        <h4>Plant &amp; Breed</h4>
-        <p>Crops go in as calving and breeding cycles begin.</p>
+        <h4>Planting &amp; Breeding</h4>
+        <p>Crops go in on a rotation schedule as calving and breeding cycles begin.</p>
       </div>
       <div class="step">
         <div class="num">03</div>
-        <h4>Grow</h4>
-        <p>Fields are tended while herds rotate through pasture.</p>
+        <h4>Growing &amp; Herd Care</h4>
+        <p>Fields are tended and irrigated while herds rotate through pasture under regular veterinary checks.</p>
       </div>
       <div class="step">
         <div class="num">04</div>
-        <h4>Harvest &amp; Deliver</h4>
-        <p>Produce and livestock move out to market on the same routes.</p>
+        <h4>Harvest &amp; Selection</h4>
+        <p>Crops are picked at peak ripeness; livestock is selected against weight and health benchmarks.</p>
+      </div>
+      <div class="step">
+        <div class="num">05</div>
+        <h4>Sorting, Grading &amp; Packing</h4>
+        <p>Produce is graded by size and quality, then packed to the buyer's specification.</p>
+      </div>
+      <div class="step">
+        <div class="num">06</div>
+        <h4>Delivery &amp; Distribution</h4>
+        <p>Orders move out on scheduled routes to markets, restaurants and wholesale buyers across the region.</p>
       </div>
     </div>
   </div>
 </section>
 
+<section class="cases" id="work">
+  <div class="section-head">
+    <h2>Proven in the Field</h2>
+    <p>A track record built one harvest and one herd at a time.</p>
+  </div>
+  <div class="case-grid">
+    <div class="case-card">
+      <div class="case-stat">15+ tonnes</div>
+      <h4>Supplying Lusaka's Central Market</h4>
+      <p>Weekly maize, cabbage and sweet potato deliveries to traders across the city's largest produce market, on a standing order that hasn't missed a week in two seasons.</p>
+    </div>
+    <div class="case-card">
+      <div class="case-stat">30+ partners</div>
+      <h4>Restaurants &amp; Lodges</h4>
+      <p>Direct-to-kitchen supply for restaurants and lodges around Lusaka, cutting out two layers of middlemen and keeping produce under a day old on delivery.</p>
+    </div>
+    <div class="case-card">
+      <div class="case-stat">3 provinces</div>
+      <h4>Regional Distribution</h4>
+      <p>Groundnuts and beef move beyond Lusaka on scheduled routes reaching Central, Southern and Copperbelt buyers.</p>
+    </div>
+  </div>
+</section>
+
 <section class="values" id="values">
-  <h2>Farmed with the next season in mind, not just this one.</h2>
+  <div class="values-head">
+    <h2>Farmed with the next season in mind, not just this one.</h2>
+    <p>The standards and certifications we hold ourselves to, season after season.</p>
+  </div>
+  <div class="cert-row">
+    <div class="cert-badge">
+      <div class="cert-mark">ZABS</div>
+      <span>Zambia Bureau of Standards aligned</span>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-mark">GAP</div>
+      <span>Good Agricultural Practice methods</span>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-mark">HACCP</div>
+      <span>Food safety handling standards</span>
+    </div>
+    <div class="cert-badge">
+      <div class="cert-mark">COMESA</div>
+      <span>Cross-border certificate of origin ready</span>
+    </div>
+  </div>
   <div class="value-list">
     <div>
       <h4>Soil health</h4>
