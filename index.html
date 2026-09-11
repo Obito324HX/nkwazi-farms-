@@ -3,377 +3,396 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Nkwazi Farms grows maize, vegetables and orchard fruit alongside cattle and poultry on the outskirts of Lusaka, Zambia. Wholesale and market supply.">
+<meta name="description" content="Nkwazi Farms grows maize, vegetables and orchard fruit alongside cattle and poultry on the outskirts of Lusaka, Zambia. Wholesale procurement, live farm telemetry, and full batch traceability.">
 <meta property="og:title" content="Nkwazi Farms: Grown and Raised in Zambia">
-<meta property="og:description" content="Crops and livestock farmed as one system on the outskirts of Lusaka, Zambia.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80">
-<title>Nkwazi Farms: Grown and Raised in Zambia</title>
+<title>Nkwazi Farms — Grown and Raised in Zambia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,400&family=Work+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --loam:#2E2A1F;
-    --clay:#B5542B;
-    --gold:#D9A54A;
-    --maize:#F3EAD6;
-    --olive:#48542F;
-    --cream:#FAF6EE;
-    --line: rgba(46,42,31,0.14);
+    --soil:#14110B;
+    --soil-2:#1D1810;
+    --parchment:#F3EDDD;
+    --parchment-2:#E8DFC7;
+    --clay:#C1622B;
+    --clay-soft:#DE8A57;
+    --acid:#C7D93B;
+    --stone:#8C8574;
+    --stone-dark:#5A5548;
+    --line:rgba(243,237,221,0.14);
+    --line-dark:rgba(20,17,11,0.14);
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
   body{
     font-family:'Work Sans', sans-serif;
-    background:var(--cream);
-    color:var(--loam);
+    background:var(--parchment);
+    color:var(--soil);
     line-height:1.55;
+    overflow-x:hidden;
+    cursor:none;
   }
-  h1,h2,h3,.wordmark{font-family:'Fraunces', serif;}
+  @media(hover:none), (pointer:coarse){ body{ cursor:auto; } .cursor-dot, .cursor-ring{ display:none !important; } }
+  h1,h2,h3{font-family:'Fraunces', serif;}
+  .mono{font-family:'Space Mono', monospace;}
   img{display:block;width:100%;height:100%;object-fit:cover;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+  .wrap{max-width:1220px;margin:0 auto;padding:0 32px;}
+  @media(max-width:700px){.wrap{padding:0 22px;}}
+  section{position:relative;}
+  .eyebrow{font-family:'Space Mono',monospace;font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--clay);}
+
+  /* custom cursor */
+  .cursor-dot,.cursor-ring{position:fixed;top:0;left:0;border-radius:50%;pointer-events:none;z-index:999;transform:translate(-50%,-50%);}
+  .cursor-dot{width:6px;height:6px;background:var(--clay);}
+  .cursor-ring{width:34px;height:34px;border:1px solid var(--clay);transition:width .18s,height .18s,border-color .18s,background .18s;}
+  .cursor-ring.hover{width:64px;height:64px;background:rgba(193,98,43,0.12);border-color:var(--acid);}
 
   /* NAV */
-  header{
-    position:sticky;top:0;z-index:20;
-    background:var(--cream);
-    border-bottom:1px solid var(--line);
-  }
-  nav{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:20px 32px;max-width:1180px;margin:0 auto;
-  }
-  .wordmark{font-size:22px;font-weight:600;letter-spacing:0.2px;}
+  header{position:sticky;top:0;z-index:100;background:rgba(243,237,221,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line-dark);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1220px;margin:0 auto;}
+  @media(max-width:700px){nav{padding:16px 22px;}}
+  .wordmark{font-size:1.35rem;font-weight:600;letter-spacing:-0.01em;}
   .wordmark span{color:var(--clay);}
-  .navlinks{display:flex;gap:24px;font-size:14px;}
-  .navlinks a{opacity:0.8;transition:opacity .2s;}
-  .navlinks a:hover{opacity:1;}
-  .nav-cta{
-    background:var(--loam);color:var(--cream);
-    padding:10px 20px;border-radius:3px;font-size:14px;font-weight:500;
-  }
-  .nav-right{display:flex;align-items:center;gap:20px;}
-  .social-row{display:flex;align-items:center;gap:14px;}
-  .social-row a{
-    width:34px;height:34px;border-radius:50%;
-    border:1px solid var(--line);
-    display:flex;align-items:center;justify-content:center;
-    opacity:0.75;transition:opacity .2s, border-color .2s;
-  }
-  .social-row a:hover{opacity:1;border-color:var(--loam);}
-  .social-row svg{width:16px;height:16px;fill:var(--loam);}
+  .navlinks{display:flex;gap:24px;font-size:0.86rem;font-weight:500;}
+  @media(max-width:1000px){.navlinks{display:none;}}
+  .nav-cta{background:var(--soil);color:var(--parchment);padding:11px 20px;font-size:0.84rem;font-weight:600;}
 
-  /* HERO */
-  .hero{
-    display:grid;grid-template-columns:1.05fr 0.95fr;
-    align-items:stretch;min-height:640px;
-  }
-  .hero-text{
-    display:flex;flex-direction:column;justify-content:center;
-    padding:60px 60px 60px 32px;max-width:560px;margin-left:auto;
-  }
-  .eyebrow{color:var(--olive);font-size:14px;font-weight:500;margin-bottom:18px;}
-  .hero-text h1{
-    font-size:52px;font-weight:500;line-height:1.08;letter-spacing:-0.5px;
-    margin-bottom:24px;
-  }
-  .hero-text p{font-size:17px;max-width:460px;opacity:0.85;margin-bottom:32px;}
-  .hero-actions{display:flex;gap:16px;}
-  .btn-primary{
-    background:var(--clay);color:var(--cream);padding:14px 26px;
-    border-radius:3px;font-weight:500;font-size:15px;
-  }
-  .btn-secondary{
-    border:1px solid var(--loam);padding:14px 26px;border-radius:3px;
-    font-weight:500;font-size:15px;
-  }
-  .hero-img{position:relative;overflow:hidden;}
-  .hero-img img{
-    width:100%;height:100%;
-    object-position:center 40%;
-  }
+  /* HERO SCROLLYTELLING */
+  .reveal-hero{height:340vh;position:relative;}
+  .pin{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--soil);}
+  .hv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hv-a{z-index:1;}
+  .hv-b{z-index:2;opacity:0;}
+  .hero-scrim{position:absolute;inset:0;z-index:3;background:linear-gradient(180deg, rgba(20,17,11,0.35) 0%, rgba(20,17,11,0.15) 40%, rgba(20,17,11,0.65) 100%);}
+  .hero-layer{position:absolute;left:0;right:0;z-index:4;padding:0 32px;max-width:1220px;margin:0 auto;color:var(--parchment);}
+  @media(max-width:700px){.hero-layer{padding:0 22px;}}
+  .hl-1{top:14%;}
+  .hl-1 h1{font-size:clamp(2.4rem,7.5vw,6.2rem);font-weight:500;line-height:0.98;letter-spacing:-0.01em;}
+  .hl-1 p{margin-top:20px;font-size:1.05rem;max-width:34ch;opacity:0.85;}
+  .hl-2{top:38%;}
+  .hl-2 .tag{font-family:'Space Mono',monospace;font-size:0.8rem;color:var(--acid);margin-bottom:14px;}
+  .hl-2 h2{font-size:clamp(1.8rem,4.5vw,3.4rem);font-weight:400;max-width:16ch;line-height:1.12;}
+  .hl-3{top:60%;}
+  .hl-3 .readout-row{display:flex;gap:34px;flex-wrap:wrap;}
+  .hl-3 .readout{font-family:'Space Mono',monospace;}
+  .hl-3 .readout .val{font-size:1.7rem;color:var(--acid);}
+  .hl-3 .readout .lbl{font-size:0.7rem;opacity:0.7;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;}
+  .scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);z-index:5;color:var(--parchment);font-family:'Space Mono',monospace;font-size:0.7rem;letter-spacing:0.1em;opacity:0.75;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .scroll-cue .bar{width:1px;height:34px;background:var(--parchment);opacity:0.5;overflow:hidden;position:relative;}
+  .scroll-cue .bar::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--acid);animation:cue 1.6s infinite;}
+  @keyframes cue{0%{top:-100%;}100%{top:100%;}}
 
-  /* STORY / INTRO */
-  .intro{
-    padding:110px 32px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:80px;
-    max-width:1180px;margin:0 auto;align-items:start;
-  }
-  .intro h2{font-size:34px;font-weight:500;line-height:1.2;}
-  .intro-copy p{font-size:16px;opacity:0.85;margin-bottom:18px;max-width:480px;}
-  .intro-copy p:last-child{margin-bottom:0;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;font-weight:600;font-size:0.87rem;cursor:pointer;border:1px solid var(--soil);}
+  .btn.on-dark{border-color:var(--parchment);color:var(--parchment);}
+  .btn.solid{background:var(--clay);border-color:var(--clay);color:var(--parchment);}
+  .btn.solid:hover{background:var(--clay-soft);border-color:var(--clay-soft);}
+  .btn.on-dark:hover{background:var(--parchment);color:var(--soil);}
+  .btn.dark{background:var(--soil);color:var(--parchment);border-color:var(--soil);}
+  .btn.dark:hover{background:var(--clay);border-color:var(--clay);}
+  .btn-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;}
 
-  /* PRODUCE + LIVESTOCK: asymmetric tiles, not identical cards */
-  .section-head{
-    max-width:1180px;margin:0 auto;padding:0 32px;
-    display:flex;justify-content:space-between;align-items:baseline;
-    margin-bottom:40px;
-  }
-  .section-head h2{font-size:30px;font-weight:500;}
-  .section-head p{font-size:15px;opacity:0.7;max-width:320px;text-align:right;}
+  /* INTRO */
+  .intro{padding:120px 32px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;max-width:1220px;margin:0 auto;align-items:start;}
+  @media(max-width:820px){.intro{grid-template-columns:1fr;gap:30px;padding:80px 22px;}}
+  .intro h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:500;line-height:1.18;}
+  .intro-copy p{font-size:1rem;opacity:0.82;margin-bottom:18px;max-width:480px;}
 
-  .produce{padding:70px 0 40px;background:var(--maize);}
-  .tile-grid{
-    max-width:1180px;margin:0 auto;padding:0 32px;
-    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
-  }
-  .tile{
-    position:relative;aspect-ratio:4/5;overflow:hidden;
-  }
+  /* SECTION HEAD */
+  .section-head{max-width:1220px;margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:50px;flex-wrap:wrap;gap:16px;}
+  @media(max-width:700px){.section-head{padding:0 22px;}}
+  .section-head h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:500;}
+  .section-head p{font-size:0.95rem;opacity:0.7;max-width:340px;}
+
+  /* TELEMETRY DASHBOARD */
+  .telemetry{background:var(--soil);color:var(--parchment);padding:110px 0;}
+  .telemetry .section-head h2{color:var(--parchment);}
+  .telemetry .section-head p{color:var(--stone);}
+  .live-pill{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:0.72rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--acid);border:1px solid rgba(199,217,59,0.4);padding:6px 12px;margin-bottom:18px;}
+  .live-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--acid);animation:pulse 1.4s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.25;}}
+  .tele-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);max-width:1220px;margin:0 auto;}
+  @media(max-width:900px){.tele-grid{grid-template-columns:1fr 1fr;}}
+  .tele-card{background:var(--soil);padding:32px 26px;}
+  .tele-card .tele-label{font-family:'Space Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--stone);margin-bottom:16px;}
+  .tele-card .tele-val{font-family:'Space Mono',monospace;font-size:2.1rem;color:var(--acid);}
+  .tele-card .tele-val .unit{font-size:1rem;color:var(--stone);margin-left:4px;}
+  .tele-card .tele-sub{font-size:0.82rem;color:var(--stone);margin-top:10px;}
+  .fleet-list{list-style:none;font-family:'Space Mono',monospace;font-size:0.78rem;margin-top:12px;}
+  .fleet-list li{display:flex;justify-content:space-between;padding:6px 0;border-top:1px solid var(--line);color:var(--stone);}
+  .fleet-list li span:last-child{color:var(--acid);}
+  .tele-note{max-width:1220px;margin:26px auto 0;padding:0 32px;font-size:0.8rem;color:var(--stone-dark);}
+  @media(max-width:700px){.tele-note{padding:0 22px;}}
+
+  /* PRODUCE tiles */
+  .produce{padding:110px 0;background:var(--parchment-2);}
+  .tile-grid{max-width:1220px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+  @media(max-width:700px){.tile-grid{grid-template-columns:1fr 1fr;padding:0 22px;}}
+  .tile{position:relative;aspect-ratio:4/5;overflow:hidden;filter:grayscale(0.15) contrast(1.05);}
   .tile:first-child{grid-row:span 2;aspect-ratio:auto;}
-  .tile-label{
-    position:absolute;bottom:0;left:0;right:0;
-    padding:22px 22px 20px;
-    background:linear-gradient(to top, rgba(20,17,10,0.72), transparent);
-    color:#fff;
-  }
-  .tile-label .name{font-family:'Fraunces',serif;font-size:19px;font-weight:500;}
-  .tile-label .tag{font-size:13px;opacity:0.85;margin-top:2px;}
+  @media(max-width:700px){.tile:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/9;}}
+  .tile-label{position:absolute;bottom:0;left:0;right:0;padding:22px;background:linear-gradient(to top, rgba(20,17,11,0.78), transparent);color:#fff;}
+  .tile-label .name{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:500;}
+  .tile-label .tag{font-family:'Space Mono',monospace;font-size:0.72rem;opacity:0.85;margin-top:3px;}
 
-  .livestock{padding:100px 0;}
-  .stock-row{
-    max-width:1180px;margin:0 auto;padding:0 32px;
-    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
-  }
-  .stock-img{aspect-ratio:6/5;overflow:hidden;border-radius:3px;}
-  .stock-copy h3{font-size:26px;font-weight:500;margin-bottom:16px;}
-  .stock-copy p{font-size:15.5px;opacity:0.85;margin-bottom:22px;max-width:440px;}
-  .stock-list{list-style:none;font-size:14.5px;}
-  .stock-list li{
-    padding:10px 0;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;
-  }
-  .stock-list li:last-child{border-bottom:1px solid var(--line);}
+  /* LIVESTOCK */
+  .livestock{padding:120px 0;}
+  .stock-row{max-width:1220px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  @media(max-width:820px){.stock-row{grid-template-columns:1fr;gap:30px;padding:0 22px;}}
+  .stock-video{aspect-ratio:6/5;overflow:hidden;position:relative;}
+  .stock-copy h3{font-size:1.8rem;font-weight:500;margin-bottom:16px;}
+  .stock-copy p{font-size:1rem;opacity:0.82;margin-bottom:22px;max-width:440px;}
+  .stock-list{list-style:none;font-family:'Space Mono',monospace;font-size:0.82rem;}
+  .stock-list li{padding:11px 0;border-top:1px solid var(--line-dark);display:flex;justify-content:space-between;}
+  .stock-list li:last-child{border-bottom:1px solid var(--line-dark);}
 
-  /* CYCLE: genuinely sequential, numbering earned here */
-  .cycle{background:var(--loam);color:var(--cream);padding:100px 32px;}
-  .cycle-inner{max-width:1180px;margin:0 auto;}
-  .cycle-head{max-width:520px;margin-bottom:60px;}
-  .cycle-head h2{font-size:30px;font-weight:500;color:var(--cream);}
-  .cycle-head p{opacity:0.65;margin-top:14px;font-size:15px;}
-  .cycle-steps{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    border-top:1px solid rgba(250,246,238,0.18);
-  }
-  .step{padding:30px 24px 30px 0;border-right:1px solid rgba(250,246,238,0.18);border-bottom:1px solid rgba(250,246,238,0.18);}
+  /* CYCLE */
+  .cycle{background:var(--soil);color:var(--parchment);padding:110px 32px;position:relative;overflow:hidden;}
+  .cycle-video{position:absolute;inset:0;opacity:0.16;filter:grayscale(1);}
+  .cycle-inner{max-width:1220px;margin:0 auto;position:relative;z-index:2;}
+  .cycle-head{max-width:540px;margin-bottom:60px;}
+  .cycle-head h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:500;color:var(--parchment);}
+  .cycle-head p{opacity:0.65;margin-top:14px;font-size:0.95rem;}
+  .cycle-steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(243,237,221,0.18);}
+  @media(max-width:820px){.cycle-steps{grid-template-columns:1fr;}}
+  .step{padding:30px 24px 30px 0;border-right:1px solid rgba(243,237,221,0.18);border-bottom:1px solid rgba(243,237,221,0.18);}
   .step:nth-child(3n){border-right:none;}
-  .step:nth-child(n+4){border-bottom:none;}
-  .step .num{font-size:14px;color:var(--gold);margin-bottom:14px;}
-  .step h4{font-family:'Fraunces',serif;font-size:19px;font-weight:500;margin-bottom:10px;}
-  .step p{font-size:14px;opacity:0.65;max-width:220px;}
+  @media(max-width:820px){.step{border-right:none !important;padding-bottom:24px;margin-bottom:24px;}}
+  .step .num{font-family:'Space Mono',monospace;font-size:0.82rem;color:var(--acid);margin-bottom:14px;}
+  .step h4{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:500;margin-bottom:10px;}
+  .step p{font-size:0.88rem;opacity:0.65;max-width:230px;}
 
-  /* VALUES / SUSTAINABILITY */
-  .values{
-    padding:100px 32px;max-width:1180px;margin:0 auto;
-  }
-  .values-head{max-width:620px;margin-bottom:50px;}
-  .values-head h2{font-size:30px;font-weight:500;line-height:1.25;}
-  .values-head p{margin-top:14px;opacity:0.7;font-size:15px;}
-  .cert-row{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:60px;}
-  .cert-badge{
-    border:1px solid var(--line);border-radius:4px;padding:16px 20px;
-    display:flex;flex-direction:column;gap:6px;flex:1 1 190px;
-  }
-  .cert-mark{font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--clay);letter-spacing:0.3px;}
-  .cert-badge span{font-size:12.5px;opacity:0.65;line-height:1.4;}
-  .value-list{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 32px;}
-  .value-list h4{font-size:16px;font-weight:600;margin-bottom:8px;}
-  .value-list p{font-size:14.5px;opacity:0.75;}
+  /* PROCUREMENT PORTAL */
+  .procurement{padding:120px 0;background:var(--parchment);}
+  .proc-grid{max-width:1220px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+  @media(max-width:900px){.proc-grid{grid-template-columns:1fr;padding:0 22px;}}
+  .proc-form{border:1px solid var(--line-dark);padding:36px;}
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-family:'Space Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;color:var(--stone-dark);}
+  .field select, .field input{width:100%;padding:13px 14px;border:1px solid var(--line-dark);background:transparent;font-family:'Work Sans',sans-serif;font-size:0.95rem;color:var(--soil);}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .proc-form .btn{width:100%;justify-content:center;margin-top:10px;}
+  .proforma{border:1px solid var(--line-dark);background:var(--soil);color:var(--parchment);padding:36px;font-family:'Space Mono',monospace;font-size:0.84rem;min-height:100%;}
+  .proforma h4{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:500;margin-bottom:4px;color:var(--parchment);}
+  .proforma .sub{color:var(--stone);font-size:0.76rem;margin-bottom:22px;}
+  .proforma .pf-row{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);}
+  .proforma .pf-total{display:flex;justify-content:space-between;padding:16px 0 0;margin-top:10px;border-top:1px solid var(--parchment);font-size:1rem;color:var(--acid);}
+  .proforma .pf-note{margin-top:22px;font-size:0.72rem;color:var(--stone);line-height:1.6;}
+  .proforma .pf-placeholder{color:var(--stone);font-size:0.82rem;line-height:1.7;}
+  .pf-actions{margin-top:22px;display:flex;gap:12px;}
+  .pf-actions button{background:transparent;border:1px solid var(--parchment);color:var(--parchment);padding:10px 18px;font-family:'Space Mono',monospace;font-size:0.74rem;cursor:pointer;}
+  .pf-actions button:hover{background:var(--parchment);color:var(--soil);}
 
-  /* CASE STUDIES */
-  .cases{padding:100px 0;background:var(--maize);}
-  .case-grid{
-    max-width:1180px;margin:0 auto;padding:0 32px;
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
-  }
-  .case-card{
-    background:var(--cream);border:1px solid var(--line);border-radius:4px;
-    padding:32px 28px;
-  }
-  .case-stat{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--clay);margin-bottom:14px;}
-  .case-card h4{font-size:17px;font-weight:600;margin-bottom:10px;}
-  .case-card p{font-size:14.5px;opacity:0.75;}
-
-  /* CONTACT / FOOTER */
-  .contact{
-    background:var(--olive);color:var(--cream);
-    padding:90px 32px 60px;
-  }
-  .contact-inner{
-    max-width:1180px;margin:0 auto;
-    display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;
-    padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.2);
-  }
-  .contact h2{font-size:32px;font-weight:500;max-width:420px;line-height:1.2;color:var(--cream);}
-  .quick-contact{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
-  .qc-link{
-    font-size:14.5px;font-weight:500;opacity:0.9;
-    display:inline-flex;align-items:center;gap:6px;
-    border-bottom:1px solid rgba(250,246,238,0.3);padding-bottom:6px;
-    max-width:fit-content;transition:opacity .2s, border-color .2s;
-  }
-  .qc-link:hover{opacity:1;border-color:var(--cream);}
-  .contact-form{display:flex;flex-direction:column;gap:14px;}
-  .contact-form input, .contact-form textarea{
-    background:transparent;border:1px solid rgba(250,246,238,0.35);
-    color:var(--cream);padding:13px 14px;font-family:inherit;font-size:14.5px;
-    border-radius:2px;
-  }
-  .contact-form input::placeholder, .contact-form textarea::placeholder{color:rgba(250,246,238,0.55);}
-  .contact-form button{
-    background:var(--gold);color:var(--loam);border:none;padding:14px;
-    font-weight:600;font-size:14.5px;border-radius:2px;margin-top:4px;cursor:pointer;
-  }
-  .contact-form button:disabled{opacity:0.6;cursor:not-allowed;}
-  .form-status{font-size:13.5px;margin-top:4px;min-height:18px;}
-  .form-status.ok{color:var(--gold);}
-  .form-status.err{color:#e08a6a;}
-  .footer-bottom{
-    max-width:1180px;margin:0 auto;padding-top:26px;
-    display:flex;justify-content:space-between;align-items:center;font-size:13px;
-  }
-  .footer-bottom > span{opacity:0.6;}
-  .footer-social{gap:12px;}
-  .footer-social a{
-    width:32px;height:32px;border-color:rgba(250,246,238,0.3);
-  }
-  .footer-social a:hover{border-color:var(--cream);opacity:1;}
-  .footer-social svg{fill:var(--cream);width:15px;height:15px;}
-
-  .site-footer{background:var(--olive);color:rgba(250,246,238,0.75);}
-  .footer-top{
-    display:flex;justify-content:space-between;align-items:flex-start;
-    padding:70px 32px 50px;flex-wrap:wrap;gap:40px;
-  }
-  .footer-brand{
-    font-family:'Fraunces',serif;font-size:26px;font-weight:500;color:var(--cream);
-    display:flex;flex-direction:column;gap:20px;
-  }
-  .footer-brand .footer-social{gap:12px;}
-  .footer-brand .footer-social a{
-    width:32px;height:32px;border-color:rgba(250,246,238,0.3);
-  }
-  .footer-brand .footer-social a:hover{border-color:var(--cream);opacity:1;}
-  .footer-brand .footer-social svg{fill:var(--cream);width:15px;height:15px;}
-  .footer-cols{display:flex;gap:60px;}
-  .footer-col{display:flex;flex-direction:column;gap:12px;font-size:14.5px;}
-  .footer-col a{opacity:0.8;transition:opacity .2s;}
-  .footer-col a:hover{opacity:1;}
-  .footer-bar{
-    border-top:1px solid rgba(250,246,238,0.15);
-    padding:22px 32px;display:flex;justify-content:space-between;
-    font-size:13px;opacity:0.6;flex-wrap:wrap;gap:10px;
-  }
-  .footer-bar a{color:var(--gold);opacity:1;}
-  .footer-bar a:hover{text-decoration:underline;}
-  @media (max-width: 620px){
-    .footer-top{flex-direction:column;}
-    .footer-cols{gap:36px;}
-    .footer-bar{flex-direction:column;}
-  }
+  /* TRACEABILITY */
+  .trace{background:var(--parchment-2);padding:120px 0;}
+  .trace-grid{max-width:1220px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:start;}
+  @media(max-width:900px){.trace-grid{grid-template-columns:1fr;padding:0 22px;}}
+  .trace-input{display:flex;gap:10px;margin-top:24px;}
+  .trace-input input{flex:1;padding:14px 16px;border:1px solid var(--line-dark);background:transparent;font-family:'Space Mono',monospace;font-size:0.9rem;text-transform:uppercase;}
+  .trace-input button{background:var(--soil);color:var(--parchment);border:none;padding:0 22px;font-weight:600;cursor:pointer;font-size:0.85rem;}
+  .trace-examples{margin-top:14px;font-size:0.78rem;color:var(--stone-dark);}
+  .trace-examples button{background:none;border:none;text-decoration:underline;cursor:pointer;font-family:'Space Mono',monospace;color:var(--clay);padding:0;font-size:0.78rem;}
+  .passport{border:1px solid var(--line-dark);background:var(--parchment);padding:36px;min-height:280px;}
+  .passport-empty{color:var(--stone-dark);font-size:0.9rem;display:flex;flex-direction:column;align-items:center;justify-content:center;height:220px;text-align:center;gap:10px;}
+  .passport-head{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line-dark);padding-bottom:18px;margin-bottom:18px;}
+  .passport-head h4{font-family:'Fraunces',serif;font-size:1.4rem;}
+  .passport-head .batch-code{font-family:'Space Mono',monospace;font-size:0.78rem;color:var(--clay);margin-top:4px;}
+  .passport-status{font-family:'Space Mono',monospace;font-size:0.7rem;text-transform:uppercase;background:var(--soil);color:var(--acid);padding:6px 12px;}
+  .passport-rows{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}
+  @media(max-width:600px){.passport-rows{grid-template-columns:1fr;}}
+  .passport-rows .pr-label{font-family:'Space Mono',monospace;font-size:0.68rem;text-transform:uppercase;color:var(--stone-dark);letter-spacing:0.05em;margin-bottom:4px;}
+  .passport-rows .pr-val{font-size:0.94rem;}
+  .fert-log{list-style:none;font-family:'Space Mono',monospace;font-size:0.8rem;border-top:1px solid var(--line-dark);padding-top:14px;}
+  .fert-log li{padding:6px 0;display:flex;justify-content:space-between;color:var(--stone-dark);}
+  .fert-log li span:last-child{color:var(--soil);}
 
   /* GALLERY */
-  .gallery{padding:100px 0;background:var(--maize);}
-  .gallery-grid{
-    max-width:1180px;margin:0 auto;padding:0 32px;
-    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  }
-  .gallery-item{
-    position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:2px;
-    cursor:pointer;
-  }
-  .gallery-item img{transition:transform .35s ease;}
-  .gallery-item:hover img{transform:scale(1.05);}
-  .gallery-item .gcap{
-    position:absolute;bottom:0;left:0;right:0;padding:14px 16px;
-    background:linear-gradient(to top, rgba(20,17,10,0.7), transparent);
-    color:#fff;font-size:13px;opacity:0;transition:opacity .2s;
-  }
+  .gallery{padding:110px 0;background:var(--parchment);}
+  .gallery-grid{max-width:1220px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+  @media(max-width:820px){.gallery-grid{grid-template-columns:1fr 1fr;padding:0 22px;}}
+  .gallery-item{position:relative;aspect-ratio:1/1;overflow:hidden;cursor:pointer;filter:grayscale(0.1);}
+  .gallery-item img{transition:transform .4s ease;}
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-item .gcap{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top, rgba(20,17,11,0.75), transparent);color:#fff;font-size:0.78rem;opacity:0;transition:opacity .2s;font-family:'Space Mono',monospace;}
   .gallery-item:hover .gcap{opacity:1;}
 
-  /* LIGHTBOX */
-  .lightbox{
-    position:fixed;inset:0;background:rgba(20,17,10,0.94);
-    display:none;align-items:center;justify-content:center;z-index:100;
-    padding:40px;
-  }
+  .lightbox{position:fixed;inset:0;background:rgba(20,17,11,0.96);display:none;align-items:center;justify-content:center;z-index:300;padding:40px;}
   .lightbox.open{display:flex;}
   .lightbox-frame{position:relative;max-width:1000px;width:100%;}
-  .lightbox-frame img{width:100%;max-height:78vh;object-fit:contain;border-radius:2px;
-    transition:opacity .25s ease, filter .3s ease;}
+  .lightbox-frame img{width:100%;max-height:78vh;object-fit:contain;transition:opacity .25s ease, filter .3s ease;}
   .lightbox-frame img.loading{opacity:0.85;filter:blur(6px);}
-  .lightbox-cap{color:var(--cream);text-align:center;margin-top:14px;font-size:14px;opacity:0.8;}
-  .lb-close, .lb-prev, .lb-next{
-    position:absolute;background:none;border:none;color:var(--cream);
-    font-size:28px;cursor:pointer;line-height:1;padding:8px;
-  }
+  .lightbox-cap{color:var(--parchment);text-align:center;margin-top:14px;font-size:0.85rem;opacity:0.8;font-family:'Space Mono',monospace;}
+  .lb-close,.lb-prev,.lb-next{position:absolute;background:none;border:none;color:var(--parchment);font-size:28px;cursor:pointer;line-height:1;padding:8px;}
   .lb-close{top:-52px;right:-8px;font-size:22px;}
   .lb-prev{left:-56px;top:50%;transform:translateY(-50%);font-size:34px;}
   .lb-next{right:-56px;top:50%;transform:translateY(-50%);font-size:34px;}
-  @media (max-width: 880px){
-    .gallery-grid{grid-template-columns:1fr 1fr;}
-    .lb-prev{left:6px;}
-    .lb-next{right:6px;}
-    .lightbox{padding:20px;}
-  }
+  @media(max-width:880px){.lb-prev{left:6px;}.lb-next{right:6px;}.lightbox{padding:20px;}}
 
-  @media (max-width: 880px){
-    .hero{grid-template-columns:1fr;min-height:auto;}
-    .hero-img{height:340px;order:-1;}
-    .hero-text{margin:0;padding:50px 24px;max-width:none;}
-    .navlinks{display:none;}
-    .intro{grid-template-columns:1fr;gap:30px;padding:70px 24px;}
-    .tile-grid{grid-template-columns:1fr 1fr;}
-    .tile:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/9;}
-    .stock-row{grid-template-columns:1fr;gap:30px;}
-    .cycle-steps{grid-template-columns:1fr;}
-    .step{border-right:none;border-bottom:1px solid rgba(250,246,238,0.18);padding-bottom:28px;margin-bottom:28px;}
-    .value-list{grid-template-columns:1fr 1fr;}
-    .case-grid{grid-template-columns:1fr;}
-    .value-list{grid-template-columns:1fr 1fr;}
-    .contact-inner{grid-template-columns:1fr;gap:40px;}
+  /* CASES */
+  .cases{padding:110px 0;background:var(--parchment-2);}
+  .case-grid{max-width:1220px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);}
+  @media(max-width:820px){.case-grid{grid-template-columns:1fr;padding:0;}}
+  .case-card{background:var(--parchment-2);padding:36px 30px;}
+  .case-stat{font-family:'Fraunces',serif;font-size:2rem;font-weight:600;color:var(--clay);margin-bottom:14px;}
+  .case-card h4{font-size:1.05rem;font-weight:600;margin-bottom:10px;}
+  .case-card p{font-size:0.88rem;opacity:0.75;}
+
+  /* VALUES */
+  .values{padding:110px 32px;max-width:1220px;margin:0 auto;}
+  @media(max-width:700px){.values{padding:80px 22px;}}
+  .values-head{max-width:640px;margin-bottom:50px;}
+  .values-head h2{font-size:clamp(1.8rem,3.6vw,2.7rem);font-weight:500;line-height:1.22;}
+  .values-head p{margin-top:14px;opacity:0.7;font-size:0.95rem;}
+  .cert-row{display:flex;flex-wrap:wrap;gap:1px;background:var(--line-dark);border:1px solid var(--line-dark);margin-bottom:60px;}
+  .cert-badge{background:var(--parchment);padding:20px 22px;display:flex;flex-direction:column;gap:6px;flex:1 1 190px;}
+  .cert-mark{font-family:'Space Mono',monospace;font-weight:700;font-size:0.95rem;color:var(--clay);letter-spacing:0.03em;}
+  .cert-badge span{font-size:0.78rem;opacity:0.65;line-height:1.4;}
+  .value-list{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 32px;}
+  @media(max-width:700px){.value-list{grid-template-columns:1fr 1fr;}}
+  .value-list h4{font-size:0.98rem;font-weight:600;margin-bottom:8px;}
+  .value-list p{font-size:0.86rem;opacity:0.75;}
+
+  /* CONTACT / FOOTER */
+  .contact{background:var(--soil);color:var(--parchment);padding:100px 32px 60px;}
+  @media(max-width:700px){.contact{padding:80px 22px 50px;}}
+  .contact-inner{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:1.2fr 0.8fr;gap:60px;padding-bottom:60px;border-bottom:1px solid rgba(243,237,221,0.2);}
+  @media(max-width:820px){.contact-inner{grid-template-columns:1fr;gap:40px;}}
+  .contact h2{font-size:clamp(1.7rem,3.4vw,2.3rem);font-weight:500;max-width:420px;line-height:1.25;color:var(--parchment);}
+  .quick-contact{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+  .qc-link{font-size:0.9rem;font-weight:500;opacity:0.9;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid rgba(243,237,221,0.3);padding-bottom:6px;max-width:fit-content;}
+  .qc-link:hover{opacity:1;border-color:var(--parchment);}
+  .contact-form{display:flex;flex-direction:column;gap:14px;}
+  .contact-form input, .contact-form textarea{background:transparent;border:1px solid rgba(243,237,221,0.35);color:var(--parchment);padding:13px 14px;font-family:inherit;font-size:0.9rem;}
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:rgba(243,237,221,0.55);}
+  .contact-form button{background:var(--acid);color:var(--soil);border:none;padding:14px;font-weight:700;font-size:0.9rem;margin-top:4px;cursor:pointer;}
+  .contact-form button:disabled{opacity:0.6;cursor:not-allowed;}
+  .form-status{font-size:0.82rem;margin-top:4px;min-height:18px;}
+  .form-status.ok{color:var(--acid);}
+  .form-status.err{color:#e08a6a;}
+  .footer-top{display:flex;justify-content:space-between;align-items:flex-start;padding:70px 32px 50px;flex-wrap:wrap;gap:40px;max-width:1220px;margin:0 auto;}
+  @media(max-width:700px){.footer-top{padding:50px 22px 40px;flex-direction:column;}}
+  .footer-brand{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:500;color:var(--parchment);display:flex;flex-direction:column;gap:20px;}
+  .social-row{display:flex;align-items:center;gap:12px;}
+  .social-row a{width:32px;height:32px;border-radius:50%;border:1px solid rgba(243,237,221,0.3);display:flex;align-items:center;justify-content:center;}
+  .social-row a:hover{border-color:var(--parchment);}
+  .social-row svg{width:15px;height:15px;fill:var(--parchment);}
+  .footer-cols{display:flex;gap:60px;}
+  .footer-col{display:flex;flex-direction:column;gap:12px;font-size:0.9rem;}
+  .footer-col a:hover{opacity:1;}
+  .footer-col a{opacity:0.8;}
+  .footer-bar{border-top:1px solid rgba(243,237,221,0.15);padding:22px 32px;display:flex;justify-content:space-between;font-size:0.8rem;opacity:0.6;flex-wrap:wrap;gap:10px;max-width:1220px;margin:0 auto;color:var(--parchment);}
+  .footer-bar a{color:var(--acid);opacity:1;}
+  .site-footer{background:var(--soil);}
+
+  @media print{
+    body *{visibility:hidden;cursor:auto;}
+    #proformaBox, #proformaBox *{visibility:visible;}
+    #proformaBox{position:absolute;top:0;left:0;width:100%;}
+    .pf-actions{display:none;}
   }
 </style>
 </head>
 <body>
 
+<div class="cursor-dot" id="cDot"></div>
+<div class="cursor-ring" id="cRing"></div>
+
 <header>
   <nav>
     <div class="wordmark">Nkwazi <span>Farms</span></div>
     <div class="navlinks">
+      <a href="#telemetry">Telemetry</a>
       <a href="#produce">Produce</a>
       <a href="#livestock">Livestock</a>
+      <a href="#procurement">Wholesale</a>
+      <a href="#trace">Traceability</a>
       <a href="#gallery">Gallery</a>
-      <a href="#cycle">Our Process</a>
-      <a href="#work">Our Work</a>
-      <a href="#values">Quality &amp; Standards</a>
     </div>
-    <div class="nav-right">
-      <a href="#contact" class="nav-cta">Get in Touch</a>
-    </div>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-text">
-    <div class="eyebrow">Family-run · Lusaka, Zambia</div>
-    <h1>Land worked by hand, herds raised with care.</h1>
-    <p>Three generations growing maize, vegetables and fruit alongside cattle and poultry on the plains outside Lusaka, supplying households, restaurants and markets across the region.</p>
-    <div class="hero-actions">
-      <a href="#produce" class="btn-primary">See What We Grow</a>
-      <a href="#contact" class="btn-secondary">Talk to Us</a>
+<section class="reveal-hero" id="revealHero">
+  <div class="pin">
+    <video class="hv hv-a" id="hvA" autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/822/822-360.mp4" type="video/mp4">
+    </video>
+    <video class="hv hv-b" id="hvB" autoplay muted loop playsinline>
+      <source src="https://assets.mixkit.co/videos/48769/48769-360.mp4" type="video/mp4">
+    </video>
+    <div class="hero-scrim"></div>
+
+    <div class="hero-layer hl-1" id="hl1">
+      <div class="eyebrow" style="color:var(--acid);">FAMILY-RUN · LUSAKA, ZAMBIA</div>
+      <h1>Land worked by hand.<br>Data worked in real time.</h1>
+      <p>Three generations of maize, vegetables and orchard fruit, run alongside cattle and poultry, now instrumented end to end from soil to delivery.</p>
     </div>
-  </div>
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1200&q=80" alt="Golden wheat field at sunset">
+
+    <div class="hero-layer hl-2" id="hl2">
+      <div class="tag mono">// DESCENDING TO PLOT LEVEL</div>
+      <h2>Every plot rested, tested and rotated on a schedule an agronomist actually signs off on.</h2>
+    </div>
+
+    <div class="hero-layer hl-3" id="hl3">
+      <div class="readout-row">
+        <div class="readout"><div class="val" id="rSoil">38%</div><div class="lbl">Soil Moisture, Plot 4</div></div>
+        <div class="readout"><div class="val" id="rTemp">27°C</div><div class="lbl">Greenhouse Temp</div></div>
+        <div class="readout"><div class="val" id="rYield">142t</div><div class="lbl">Stored Yield</div></div>
+      </div>
+      <div class="btn-row">
+        <a href="#telemetry" class="btn on-dark">View Live Dashboard</a>
+        <a href="#procurement" class="btn solid">Start Wholesale Order</a>
+      </div>
+    </div>
+
+    <div class="scroll-cue"><span>Scroll</span><div class="bar"></div></div>
   </div>
 </section>
 
 <section class="intro">
-  <h2>One farm, two disciplines, worked as a single system.</h2>
+  <h2>One farm, two disciplines, now one data layer.</h2>
   <div class="intro-copy">
     <p>Nkwazi Farms began as a single maize plot on the outskirts of Lusaka. Today the land is split between open-field crops and grazing pasture, with manure from the herd feeding the soil and crop residue feeding the animals, a cycle rather than two separate businesses.</p>
-    <p>Every harvest and every herd is managed by the same family that started it, with agronomists and livestock officers brought in to keep both sides running to the same standard.</p>
+    <p>Every harvest and every herd is still managed by the same family that started it. What's changed is what a buyer can see before a truck ever leaves the gate.</p>
   </div>
+</section>
+
+<section class="telemetry" id="telemetry">
+  <div class="section-head">
+    <div>
+      <div class="live-pill"><span class="dot"></span>Live Telemetry (Simulated Preview)</div>
+      <h2>The Farm, Right Now</h2>
+    </div>
+    <p>A preview of the kind of live operational view a wholesale buyer would get on a real deployment.</p>
+  </div>
+  <div class="tele-grid">
+    <div class="tele-card">
+      <div class="tele-label">Soil Moisture — Plot 4 (Maize)</div>
+      <div class="tele-val" id="teleSoil">38<span class="unit">%</span></div>
+      <div class="tele-sub" id="teleSoilSub">Within target range, 30–45%</div>
+    </div>
+    <div class="tele-card">
+      <div class="tele-label">Greenhouse Temperature</div>
+      <div class="tele-val" id="teleTemp">27<span class="unit">°C</span></div>
+      <div class="tele-sub" id="teleTempSub">Vent cycle active</div>
+    </div>
+    <div class="tele-card">
+      <div class="tele-label">Stored Yield — Current Season</div>
+      <div class="tele-val" id="teleYield">142<span class="unit">t</span></div>
+      <div class="tele-sub">Maize, groundnuts &amp; sweet potato combined</div>
+    </div>
+    <div class="tele-card">
+      <div class="tele-label">Delivery Fleet</div>
+      <ul class="fleet-list" id="fleetList">
+        <li><span>NKW-01 &middot; Central Market</span><span>En route</span></li>
+        <li><span>NKW-02 &middot; Kabwe route</span><span>Loading</span></li>
+        <li><span>NKW-03 &middot; Copperbelt</span><span>Delivered</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="tele-note">These figures update on a short interval to demonstrate the interaction pattern. A production build would connect this panel to real soil probes, greenhouse controllers, and GPS trackers on the delivery fleet.</p>
 </section>
 
 <section class="produce" id="produce">
@@ -382,29 +401,19 @@
     <p>Rotated across three plots to keep the soil rested and productive year-round.</p>
   </div>
   <div class="tile-grid">
-    <div class="tile">
-      <img src="https://images.unsplash.com/photo-1559743702-14419ca95ca4?w=900&q=80" alt="Dried maize cobs after harvest">
-      <div class="tile-label"><div class="name">Maize</div><div class="tag">Staple crop, harvested May to June</div></div>
-    </div>
-    <div class="tile">
-      <img src="https://images.unsplash.com/photo-1561635741-c416a5193b6e?w=700&q=80" alt="Freshly harvested sweet potatoes in a farmer's hands">
-      <div class="tile-label"><div class="name">Sweet Potatoes</div><div class="tag">Two harvests a year</div></div>
-    </div>
-    <div class="tile">
-      <img src="https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=700&q=80" alt="Fresh cabbage heads">
-      <div class="tile-label"><div class="name">Cabbage</div><div class="tag">Grown for local markets</div></div>
-    </div>
-    <div class="tile">
-      <img src="https://images.unsplash.com/photo-1567892737950-30c4db37cd89?w=700&q=80" alt="Harvested groundnuts">
-      <div class="tile-label"><div class="name">Groundnuts</div><div class="tag">Rotation crop, soil-restoring</div></div>
-    </div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1559743702-14419ca95ca4?w=900&q=80" alt="Dried maize cobs after harvest"><div class="tile-label"><div class="name">Maize</div><div class="tag">Staple crop, harvested May to June</div></div></div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1561635741-c416a5193b6e?w=700&q=80" alt="Freshly harvested sweet potatoes"><div class="tile-label"><div class="name">Sweet Potatoes</div><div class="tag">Two harvests a year</div></div></div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=700&q=80" alt="Fresh cabbage heads"><div class="tile-label"><div class="name">Cabbage</div><div class="tag">Grown for local markets</div></div></div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1567892737950-30c4db37cd89?w=700&q=80" alt="Harvested groundnuts"><div class="tile-label"><div class="name">Groundnuts</div><div class="tag">Rotation crop, soil-restoring</div></div></div>
   </div>
 </section>
 
 <section class="livestock" id="livestock">
   <div class="stock-row">
-    <div class="stock-img">
-      <img src="https://images.unsplash.com/photo-1721845596423-49b6f5a7a025?w=900&q=80" alt="Herd of cattle grazing on green pasture">
+    <div class="stock-video">
+      <video class="hv" autoplay muted loop playsinline style="position:static;filter:grayscale(0.2);">
+        <source src="https://assets.mixkit.co/videos/44958/44958-360.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="stock-copy">
       <h3>Herd &amp; Flock</h3>
@@ -414,6 +423,100 @@
         <li><span>Dairy cows</span><span>Milked twice daily</span></li>
         <li><span>Free-range poultry</span><span>Eggs &amp; table birds</span></li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cycle" id="cycle">
+  <video class="cycle-video hv" autoplay muted loop playsinline style="position:absolute;">
+    <source src="https://assets.mixkit.co/videos/10015/10015-360.mp4" type="video/mp4">
+  </video>
+  <div class="cycle-inner">
+    <div class="cycle-head">
+      <h2>Our Process: From Field to Delivery</h2>
+      <p>Every batch, whether crop or livestock, moves through the same six checkpoints before it leaves the farm, and every checkpoint is what feeds the traceability record below.</p>
+    </div>
+    <div class="cycle-steps">
+      <div class="step"><div class="num">01</div><h4>Soil &amp; Paddock Prep</h4><p>Soil testing and paddock rest before the first rains, guided by an agronomist's recommendations.</p></div>
+      <div class="step"><div class="num">02</div><h4>Planting &amp; Breeding</h4><p>Crops go in on a rotation schedule as calving and breeding cycles begin.</p></div>
+      <div class="step"><div class="num">03</div><h4>Growing &amp; Herd Care</h4><p>Fields are tended and irrigated while herds rotate through pasture under regular veterinary checks.</p></div>
+      <div class="step"><div class="num">04</div><h4>Harvest &amp; Selection</h4><p>Crops are picked at peak ripeness; livestock is selected against weight and health benchmarks.</p></div>
+      <div class="step"><div class="num">05</div><h4>Sorting, Grading &amp; Packing</h4><p>Produce is graded by size and quality, then packed to the buyer's specification.</p></div>
+      <div class="step"><div class="num">06</div><h4>Delivery &amp; Distribution</h4><p>Orders move out on scheduled routes to markets, restaurants and wholesale buyers across the region.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="procurement" id="procurement">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">B2B PROCUREMENT</div>
+      <h2>Wholesale Order Builder</h2>
+    </div>
+    <p>Configure a bulk order and generate an export-ready proforma with an indicative COMESA compliance note.</p>
+  </div>
+  <div class="proc-grid">
+    <div class="proc-form">
+      <div class="field">
+        <label>Commodity</label>
+        <select id="pCommodity">
+          <option value="Maize" data-rate="380">Maize, grade 1 (per metric ton)</option>
+          <option value="Groundnuts" data-rate="920">Groundnuts, shelled (per metric ton)</option>
+          <option value="Sweet Potato" data-rate="310">Sweet Potato (per metric ton)</option>
+          <option value="Beef" data-rate="4200">Beef, carcass weight (per metric ton)</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label>Quantity (metric tons)</label>
+          <input type="number" id="pQty" min="1" value="20">
+        </div>
+        <div class="field">
+          <label>Incoterm</label>
+          <select id="pIncoterm">
+            <option value="EXW Lusaka" data-fee="0">EXW — Ex Works, Lusaka</option>
+            <option value="FCA Ndola" data-fee="0.04">FCA — Free Carrier, Ndola</option>
+            <option value="DAP Border" data-fee="0.09">DAP — Delivered at Border</option>
+          </select>
+        </div>
+      </div>
+      <div class="field">
+        <label>Destination country</label>
+        <input type="text" id="pDest" placeholder="e.g. Democratic Republic of Congo" value="Democratic Republic of Congo">
+      </div>
+      <div class="field">
+        <label>Buyer / company name</label>
+        <input type="text" id="pBuyer" placeholder="Company name">
+      </div>
+      <button class="btn solid" id="pGenerate" style="width:100%;justify-content:center;">Generate Proforma Invoice</button>
+    </div>
+    <div class="proforma" id="proformaBox">
+      <h4>Proforma Invoice</h4>
+      <div class="sub">NKWAZI FARMS · LUSAKA, ZAMBIA · DRAFT, NON-BINDING</div>
+      <div id="pfBody">
+        <p class="pf-placeholder">Configure an order on the left to generate a draft proforma invoice with an indicative price, Incoterm, and COMESA certificate-of-origin note.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trace" id="trace">
+  <div class="trace-grid">
+    <div>
+      <div class="eyebrow">TRACEABILITY</div>
+      <h2 style="font-size:clamp(1.8rem,3.6vw,2.6rem);font-weight:500;margin-top:12px;">Trace Any Batch</h2>
+      <p style="margin-top:16px;opacity:0.75;max-width:38ch;">Enter a batch code to see the digital passport for that specific harvest: plot, agronomist, fertiliser log and carbon footprint.</p>
+      <div class="trace-input">
+        <input type="text" id="traceInput" placeholder="e.g. NKW-2026-MAIZE" maxlength="24">
+        <button id="traceBtn">Trace</button>
+      </div>
+      <div class="trace-examples">Try: <button data-code="NKW-2026-MAIZE">NKW-2026-MAIZE</button>, <button data-code="NKW-2026-BEEF">NKW-2026-BEEF</button>, <button data-code="NKW-2026-GNUT">NKW-2026-GNUT</button></div>
+    </div>
+    <div class="passport" id="passportBox">
+      <div class="passport-empty">
+        <div class="mono" style="font-size:0.78rem;letter-spacing:0.05em;">NO BATCH LOADED</div>
+        <div>Enter or select a batch code to open its digital passport.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -436,68 +539,15 @@
   </div>
 </div>
 
-<section class="cycle" id="cycle">
-  <div class="cycle-inner">
-    <div class="cycle-head">
-      <h2>Our Process: From Field to Delivery</h2>
-      <p>Every batch, whether crop or livestock, moves through the same six checkpoints before it leaves the farm.</p>
-    </div>
-    <div class="cycle-steps">
-      <div class="step">
-        <div class="num">01</div>
-        <h4>Soil &amp; Paddock Prep</h4>
-        <p>Soil testing and paddock rest before the first rains, guided by an agronomist's recommendations.</p>
-      </div>
-      <div class="step">
-        <div class="num">02</div>
-        <h4>Planting &amp; Breeding</h4>
-        <p>Crops go in on a rotation schedule as calving and breeding cycles begin.</p>
-      </div>
-      <div class="step">
-        <div class="num">03</div>
-        <h4>Growing &amp; Herd Care</h4>
-        <p>Fields are tended and irrigated while herds rotate through pasture under regular veterinary checks.</p>
-      </div>
-      <div class="step">
-        <div class="num">04</div>
-        <h4>Harvest &amp; Selection</h4>
-        <p>Crops are picked at peak ripeness; livestock is selected against weight and health benchmarks.</p>
-      </div>
-      <div class="step">
-        <div class="num">05</div>
-        <h4>Sorting, Grading &amp; Packing</h4>
-        <p>Produce is graded by size and quality, then packed to the buyer's specification.</p>
-      </div>
-      <div class="step">
-        <div class="num">06</div>
-        <h4>Delivery &amp; Distribution</h4>
-        <p>Orders move out on scheduled routes to markets, restaurants and wholesale buyers across the region.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="cases" id="work">
   <div class="section-head">
     <h2>Proven in the Field</h2>
     <p>A track record built one harvest and one herd at a time.</p>
   </div>
   <div class="case-grid">
-    <div class="case-card">
-      <div class="case-stat">15+ tonnes</div>
-      <h4>Supplying Lusaka's Central Market</h4>
-      <p>Weekly maize, cabbage and sweet potato deliveries to traders across the city's largest produce market, on a standing order that hasn't missed a week in two seasons.</p>
-    </div>
-    <div class="case-card">
-      <div class="case-stat">30+ partners</div>
-      <h4>Restaurants &amp; Lodges</h4>
-      <p>Direct-to-kitchen supply for restaurants and lodges around Lusaka, cutting out two layers of middlemen and keeping produce under a day old on delivery.</p>
-    </div>
-    <div class="case-card">
-      <div class="case-stat">3 provinces</div>
-      <h4>Regional Distribution</h4>
-      <p>Groundnuts and beef move beyond Lusaka on scheduled routes reaching Central, Southern and Copperbelt buyers.</p>
-    </div>
+    <div class="case-card"><div class="case-stat">15+ tonnes</div><h4>Supplying Lusaka's Central Market</h4><p>Weekly maize, cabbage and sweet potato deliveries to traders across the city's largest produce market, on a standing order that hasn't missed a week in two seasons.</p></div>
+    <div class="case-card"><div class="case-stat">30+ partners</div><h4>Restaurants &amp; Lodges</h4><p>Direct-to-kitchen supply for restaurants and lodges around Lusaka, cutting out two layers of middlemen and keeping produce under a day old on delivery.</p></div>
+    <div class="case-card"><div class="case-stat">3 provinces</div><h4>Regional Distribution</h4><p>Groundnuts and beef move beyond Lusaka on scheduled routes reaching Central, Southern and Copperbelt buyers.</p></div>
   </div>
 </section>
 
@@ -507,40 +557,16 @@
     <p>The standards and certifications we hold ourselves to, season after season.</p>
   </div>
   <div class="cert-row">
-    <div class="cert-badge">
-      <div class="cert-mark">ZABS</div>
-      <span>Zambia Bureau of Standards aligned</span>
-    </div>
-    <div class="cert-badge">
-      <div class="cert-mark">GAP</div>
-      <span>Good Agricultural Practice methods</span>
-    </div>
-    <div class="cert-badge">
-      <div class="cert-mark">HACCP</div>
-      <span>Food safety handling standards</span>
-    </div>
-    <div class="cert-badge">
-      <div class="cert-mark">COMESA</div>
-      <span>Cross-border certificate of origin ready</span>
-    </div>
+    <div class="cert-badge"><div class="cert-mark">ZABS</div><span>Zambia Bureau of Standards aligned</span></div>
+    <div class="cert-badge"><div class="cert-mark">GAP</div><span>Good Agricultural Practice methods</span></div>
+    <div class="cert-badge"><div class="cert-mark">HACCP</div><span>Food safety handling standards</span></div>
+    <div class="cert-badge"><div class="cert-mark">COMESA</div><span>Cross-border certificate of origin ready</span></div>
   </div>
   <div class="value-list">
-    <div>
-      <h4>Soil health</h4>
-      <p>Manure and crop rotation replace most synthetic fertiliser.</p>
-    </div>
-    <div>
-      <h4>Water use</h4>
-      <p>Drip irrigation on vegetable plots cuts water use well below flood methods.</p>
-    </div>
-    <div>
-      <h4>Animal welfare</h4>
-      <p>Open pasture grazing, no confinement feeding.</p>
-    </div>
-    <div>
-      <h4>Local labour</h4>
-      <p>Seasonal and permanent staff drawn from surrounding communities.</p>
-    </div>
+    <div><h4>Soil health</h4><p>Manure and crop rotation replace most synthetic fertiliser.</p></div>
+    <div><h4>Water use</h4><p>Drip irrigation on vegetable plots cuts water use well below flood methods.</p></div>
+    <div><h4>Animal welfare</h4><p>Open pasture grazing, no confinement feeding.</p></div>
+    <div><h4>Local labour</h4><p>Seasonal and permanent staff drawn from surrounding communities.</p></div>
   </div>
 </section>
 
@@ -565,124 +591,285 @@
 </section>
 
 <footer class="site-footer">
-  <div class="footer-top wrap">
+  <div class="footer-top">
     <div class="footer-brand">
       Nkwazi Farms
-      <div class="social-row footer-social">
+      <div class="social-row">
         <a href="https://wa.me/260775580799" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.44 5.15L2 22l5.13-1.5a9.9 9.9 0 0 0 4.9 1.3h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.13.11-1.82-.11a15.6 15.6 0 0 1-1.63-.6c-2.87-1.24-4.74-4.15-4.88-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.11 1-2.4.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.6.83 2.06.9 2.21.07.15.12.33.02.53-.1.2-.16.32-.31.5-.15.17-.32.38-.45.51-.15.15-.3.31-.13.6.17.3.77 1.28 1.66 2.07 1.14 1.02 2.1 1.34 2.4 1.49.3.15.48.13.66-.05.18-.19.75-.87.95-1.17.2-.3.4-.24.66-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.08.13.08.75-.16 1.43Z"/></svg></a>
         <a href="https://www.instagram.com/zedforge.zm" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.24 2.23.41.56.21.96.47 1.38.89.42.42.68.82.89 1.38.17.42.36 1.05.41 2.22.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.8-.41 2.22a3.72 3.72 0 0 1-.89 1.38c-.42.42-.82.68-1.38.89-.42.17-1.05.36-2.22.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.24-2.22-.41a3.72 3.72 0 0 1-1.38-.89 3.72 3.72 0 0 1-.89-1.38c-.17-.42-.36-1.05-.41-2.22C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.24-1.8.41-2.22.21-.56.47-.96.89-1.38.42-.42.82-.68 1.38-.89.42-.17 1.05-.36 2.22-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.62c-3.15 0-3.5.01-4.74.07-.95.04-1.47.2-1.81.34-.46.18-.78.39-1.12.73-.34.34-.55.66-.73 1.12-.14.34-.3.86-.34 1.81-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.95.2 1.47.34 1.81.18.46.39.78.73 1.12.34.34.66.55 1.12.73.34.14.86.3 1.81.34 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.95-.04 1.47-.2 1.81-.34.46-.18.78-.39 1.12-.73.34-.34.55-.66.73-1.12.14-.34.3-.86.34-1.81.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.95-.2-1.47-.34-1.81a2.1 2.1 0 0 0-.73-1.12 2.1 2.1 0 0 0-1.12-.73c-.34-.14-.86-.3-1.81-.34-1.24-.06-1.59-.07-4.74-.07Zm0 4.16a4.06 4.06 0 1 1 0 8.12 4.06 4.06 0 0 1 0-8.12Zm0 1.62a2.44 2.44 0 1 0 0 4.88 2.44 2.44 0 0 0 0-4.88Zm5.17-2.98a.98.98 0 1 1-1.96 0 .98.98 0 0 1 1.96 0Z"/></svg></a>
         <a href="https://www.facebook.com/smith.legends.79" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-7.7h2.6l.4-3h-3v-1.9c0-.87.24-1.46 1.5-1.46h1.6V5.27C15.9 5.19 14.9 5.1 13.7 5.1c-2.4 0-4.05 1.46-4.05 4.15V11.3H7v3h2.65V22h3.85Z"/></svg></a>
       </div>
     </div>
     <div class="footer-cols">
-      <div class="footer-col">
-        <a href="#produce">Produce</a>
-        <a href="#livestock">Livestock</a>
-        <a href="#gallery">Gallery</a>
-      </div>
-      <div class="footer-col">
-        <a href="https://www.instagram.com/zedforge.zm" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/smith.legends.79" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://wa.me/260775580799" target="_blank" rel="noopener">WhatsApp</a>
-      </div>
+      <div class="footer-col"><a href="#produce">Produce</a><a href="#livestock">Livestock</a><a href="#procurement">Wholesale</a><a href="#trace">Traceability</a></div>
+      <div class="footer-col"><a href="https://www.instagram.com/zedforge.zm" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/smith.legends.79" target="_blank" rel="noopener">Facebook</a><a href="https://wa.me/260775580799" target="_blank" rel="noopener">WhatsApp</a></div>
     </div>
   </div>
-  <div class="footer-bar wrap">
-    <span>&copy; 2026 Nkwazi Farms, Lusaka. All rights reserved.</span>
+  <div class="footer-bar">
+    <span>&copy; 2026 Nkwazi Farms, Lusaka — fictional demo built for Zed-Forge</span>
     <span>Designed &amp; built by <a href="https://zed-forge-xi.vercel.app/" target="_blank" rel="noopener">Zed-Forge</a></span>
   </div>
 </footer>
 
 <script>
-  const galleryPhotos = [
-    { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=80", caption: "First light over the fields" },
-    { src: "https://images.unsplash.com/photo-1559743702-14419ca95ca4?w=1400&q=80", caption: "Maize ready for storage after the June harvest" },
-    { src: "https://images.unsplash.com/photo-1721845596423-49b6f5a7a025?w=1400&q=80", caption: "Herd moved to fresh paddock" },
-    { src: "https://images.unsplash.com/photo-1757627550652-30788bfce978?w=1400&q=80", caption: "Vegetable crates ahead of market day" },
-    { src: "https://images.unsplash.com/photo-1715360378677-d6375ac03dbf?w=1400&q=80", caption: "Preparing ground before the rains" },
-    { src: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=1400&q=80", caption: "Cabbage rows ready for the local market" },
-    { src: "https://images.unsplash.com/photo-1567892737950-30c4db37cd89?w=1400&q=80", caption: "Groundnuts sorted after harvest" },
-    { src: "https://images.unsplash.com/photo-1561635741-c416a5193b6e?w=1400&q=80", caption: "Freshly lifted sweet potatoes" }
-  ];
-
-  const grid = document.getElementById('galleryGrid');
-  galleryPhotos.forEach((photo, i) => {
-    const item = document.createElement('div');
-    item.className = 'gallery-item';
-    item.innerHTML = `<img src="${photo.src.replace('w=1400','w=500')}" alt="${photo.caption}">
-      <div class="gcap">${photo.caption}</div>`;
-    item.addEventListener('click', () => openLightbox(i));
-    grid.appendChild(item);
+/* ---------- custom cursor ---------- */
+(function(){
+  const dot = document.getElementById('cDot');
+  const ring = document.getElementById('cRing');
+  window.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px';
+    ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px';
   });
+  document.querySelectorAll('a, button, input, select, textarea, .gallery-item').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+})();
 
-  const lightbox = document.getElementById('lightbox');
-  const lbImage = document.getElementById('lbImage');
-  const lbCaption = document.getElementById('lbCaption');
-  let currentIndex = 0;
+/* ---------- scrollytelling hero ---------- */
+(function(){
+  const hero = document.getElementById('revealHero');
+  const hvA = document.getElementById('hvA');
+  const hvB = document.getElementById('hvB');
+  const hl1 = document.getElementById('hl1');
+  const hl2 = document.getElementById('hl2');
+  const hl3 = document.getElementById('hl3');
 
-  function openLightbox(index){
-    currentIndex = index;
-    updateLightbox();
-    lightbox.classList.add('open');
-  }
-  function updateLightbox(){
-    const photo = galleryPhotos[currentIndex];
-    const thumb = photo.src.replace('w=1400', 'w=500');
-    lbImage.src = thumb;
-    lbImage.alt = photo.caption;
-    lbImage.classList.add('loading');
-    lbCaption.textContent = photo.caption;
+  function clamp01(v){ return Math.max(0, Math.min(1, v)); }
+  function mapRange(v, a, b, c, d){ const t = clamp01((v-a)/(b-a)); return c + t*(d-c); }
 
-    const fullRes = new Image();
-    fullRes.onload = () => {
-      lbImage.src = photo.src;
-      lbImage.classList.remove('loading');
+  function layerStyle(el, start, end){
+    return function(p){
+      const t = mapRange(p, start, end, 0, 1);
+      el.style.opacity = t < 0.06 || t > 0.94 ? mapRange(t,0,0.15,0,1) * mapRange(t,0.85,1,1,0) : 1;
+      el.style.transform = 'translateY(' + (18 - t*18) + 'px)';
     };
-    fullRes.src = photo.src;
   }
-  function closeLightbox(){ lightbox.classList.remove('open'); }
-  function showNext(){ currentIndex = (currentIndex + 1) % galleryPhotos.length; updateLightbox(); }
-  function showPrev(){ currentIndex = (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length; updateLightbox(); }
+  const s1 = layerStyle(hl1, 0, 0.28);
+  const s2 = layerStyle(hl2, 0.32, 0.62);
+  const s3 = layerStyle(hl3, 0.66, 1.0);
 
-  document.getElementById('lbClose').addEventListener('click', closeLightbox);
-  document.getElementById('lbNext').addEventListener('click', showNext);
-  document.getElementById('lbPrev').addEventListener('click', showPrev);
-  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
-  document.addEventListener('keydown', (e) => {
-    if(!lightbox.classList.contains('open')) return;
-    if(e.key === 'Escape') closeLightbox();
-    if(e.key === 'ArrowRight') showNext();
-    if(e.key === 'ArrowLeft') showPrev();
+  function onScroll(){
+    const rect = hero.getBoundingClientRect();
+    const total = hero.offsetHeight - window.innerHeight;
+    const scrolled = -rect.top;
+    const p = clamp01(scrolled / total);
+    hvB.style.opacity = mapRange(p, 0.25, 0.55, 0, 1);
+    s1(p); s2(p); s3(p);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+
+/* ---------- telemetry simulation ---------- */
+(function(){
+  function wobble(val, min, max, delta){
+    let n = val + (Math.random()*2-1)*delta;
+    if(n < min) n = min; if(n > max) n = max;
+    return Math.round(n*10)/10;
+  }
+  let soil = 38, temp = 27, yieldT = 142;
+  const heroSoil = document.getElementById('rSoil');
+  const heroTemp = document.getElementById('rTemp');
+  const heroYield = document.getElementById('rYield');
+  const teleSoil = document.getElementById('teleSoil');
+  const teleTemp = document.getElementById('teleTemp');
+  const teleYield = document.getElementById('teleYield');
+  const fleetList = document.getElementById('fleetList');
+  const fleetStates = ['En route','Loading','Delivered','Departed depot','Arriving in 12 min'];
+
+  setInterval(function(){
+    soil = wobble(soil, 30, 45, 1.4);
+    temp = wobble(temp, 24, 31, 0.8);
+    yieldT = Math.max(0, yieldT - Math.random()*0.6);
+
+    heroSoil.textContent = soil.toFixed(0) + '%';
+    heroTemp.textContent = temp.toFixed(0) + '°C';
+    heroYield.textContent = yieldT.toFixed(0) + 't';
+    teleSoil.innerHTML = soil.toFixed(0) + '<span class="unit">%</span>';
+    teleTemp.innerHTML = temp.toFixed(0) + '<span class="unit">°C</span>';
+    teleYield.innerHTML = yieldT.toFixed(0) + '<span class="unit">t</span>';
+
+    if(Math.random() < 0.35){
+      const rows = fleetList.querySelectorAll('li span:last-child');
+      const idx = Math.floor(Math.random()*rows.length);
+      rows[idx].textContent = fleetStates[Math.floor(Math.random()*fleetStates.length)];
+    }
+  }, 2600);
+})();
+
+/* ---------- procurement calculator ---------- */
+(function(){
+  const commodity = document.getElementById('pCommodity');
+  const qty = document.getElementById('pQty');
+  const incoterm = document.getElementById('pIncoterm');
+  const dest = document.getElementById('pDest');
+  const buyer = document.getElementById('pBuyer');
+  const generate = document.getElementById('pGenerate');
+  const pfBody = document.getElementById('pfBody');
+
+  function fmt(n){ return n.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2}); }
+
+  generate.addEventListener('click', function(){
+    const cOpt = commodity.options[commodity.selectedIndex];
+    const rate = parseFloat(cOpt.dataset.rate);
+    const q = Math.max(1, parseFloat(qty.value) || 1);
+    const iOpt = incoterm.options[incoterm.selectedIndex];
+    const fee = parseFloat(iOpt.dataset.fee);
+    const subtotal = rate * q;
+    const handling = subtotal * fee;
+    const total = subtotal + handling;
+    const invoiceNo = 'NKW-PF-' + Math.floor(1000 + Math.random()*9000);
+    const today = new Date();
+    const buyerName = buyer.value.trim() || 'Prospective Buyer';
+    const destName = dest.value.trim() || 'Not specified';
+
+    pfBody.innerHTML =
+      '<div class="pf-row"><span>Invoice No.</span><span>' + invoiceNo + '</span></div>' +
+      '<div class="pf-row"><span>Date</span><span>' + today.toLocaleDateString() + '</span></div>' +
+      '<div class="pf-row"><span>Buyer</span><span>' + buyerName + '</span></div>' +
+      '<div class="pf-row"><span>Destination</span><span>' + destName + '</span></div>' +
+      '<div class="pf-row"><span>Commodity</span><span>' + cOpt.value + '</span></div>' +
+      '<div class="pf-row"><span>Quantity</span><span>' + q + ' MT</span></div>' +
+      '<div class="pf-row"><span>Incoterm</span><span>' + iOpt.value + '</span></div>' +
+      '<div class="pf-row"><span>Rate / MT (USD)</span><span>$' + fmt(rate) + '</span></div>' +
+      '<div class="pf-row"><span>Subtotal</span><span>$' + fmt(subtotal) + '</span></div>' +
+      '<div class="pf-row"><span>Handling &amp; logistics (' + (fee*100).toFixed(0) + '%)</span><span>$' + fmt(handling) + '</span></div>' +
+      '<div class="pf-total"><span>Estimated Total (USD)</span><span>$' + fmt(total) + '</span></div>' +
+      '<div class="pf-note">COMESA Certificate of Origin: eligible for preferential tariff treatment under the COMESA Free Trade Area, subject to standard rules-of-origin verification at export. This is an indicative draft, not a binding commercial invoice.</div>' +
+      '<div class="pf-actions"><button id="pfPrint">Print / Save PDF</button><button id="pfWhatsapp">Send to WhatsApp</button></div>';
+
+    document.getElementById('pfPrint').addEventListener('click', () => window.print());
+    document.getElementById('pfWhatsapp').addEventListener('click', () => {
+      const msg = 'Hi, I would like to proceed with a wholesale order: ' + q + ' MT of ' + cOpt.value + ', ' + iOpt.value + ', estimated total $' + fmt(total) + '.';
+      window.open('https://wa.me/260775580799?text=' + encodeURIComponent(msg), '_blank');
+    });
   });
+})();
 
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitBtn = contactForm.querySelector('button');
-    submitBtn.disabled = true;
-    formStatus.textContent = 'Sending...';
-    formStatus.className = 'form-status';
-    try {
-      const response = await fetch(contactForm.action, {
-        method: 'POST',
-        body: new FormData(contactForm),
-        headers: { 'Accept': 'application/json' }
-      });
-      if (response.ok) {
-        formStatus.textContent = "Thanks, we've received your message and will be in touch soon.";
-        formStatus.className = 'form-status ok';
-        contactForm.reset();
-      } else {
-        formStatus.textContent = 'Something went wrong. Please try WhatsApp instead.';
-        formStatus.className = 'form-status err';
-      }
-    } catch (err) {
-      formStatus.textContent = 'Network error. Please try WhatsApp instead.';
+/* ---------- traceability simulator ---------- */
+(function(){
+  const batches = {
+    'NKW-2026-MAIZE': {
+      name: 'Maize, Grade 1', plot: 'Plot 4, North Field', harvested: '18 May 2026',
+      agronomist: 'B. Chileshe, Agronomist', carbon: '0.31 t CO2e / hectare',
+      fert: [['Manure application','12 Feb 2026'],['Soil test, Plot 4','02 Mar 2026'],['Basal fertiliser (compost blend)','14 Mar 2026']]
+    },
+    'NKW-2026-BEEF': {
+      name: 'Beef, Carcass Grade A', plot: 'South Pasture, Paddock 2', harvested: '02 Jun 2026',
+      agronomist: 'M. Zulu, Livestock Officer', carbon: '2.1 t CO2e / head',
+      fert: [['Paddock rotation','Jan – May 2026'],['Veterinary health check','20 Apr 2026'],['Weight benchmark passed','28 May 2026']]
+    },
+    'NKW-2026-GNUT': {
+      name: 'Groundnuts, Shelled', plot: 'Plot 2, East Field', harvested: '30 Apr 2026',
+      agronomist: 'B. Chileshe, Agronomist', carbon: '0.18 t CO2e / hectare',
+      fert: [['Soil-restoring rotation start','10 Nov 2025'],['No synthetic fertiliser used','—'],['Sorting &amp; grading','06 May 2026']]
+    }
+  };
+
+  const input = document.getElementById('traceInput');
+  const btn = document.getElementById('traceBtn');
+  const box = document.getElementById('passportBox');
+
+  function render(code){
+    const key = code.trim().toUpperCase();
+    const data = batches[key];
+    if(!data){
+      box.innerHTML = '<div class="passport-empty"><div class="mono" style="font-size:0.78rem;color:var(--clay);">BATCH NOT FOUND</div><div>No record for "' + key + '". Try NKW-2026-MAIZE, NKW-2026-BEEF, or NKW-2026-GNUT.</div></div>';
+      return;
+    }
+    box.innerHTML =
+      '<div class="passport-head"><div><h4>' + data.name + '</h4><div class="batch-code">' + key + '</div></div><div class="passport-status">Verified</div></div>' +
+      '<div class="passport-rows">' +
+        '<div><div class="pr-label">Plot</div><div class="pr-val">' + data.plot + '</div></div>' +
+        '<div><div class="pr-label">Harvested / Processed</div><div class="pr-val">' + data.harvested + '</div></div>' +
+        '<div><div class="pr-label">Signed Off By</div><div class="pr-val">' + data.agronomist + '</div></div>' +
+        '<div><div class="pr-label">Carbon Footprint</div><div class="pr-val">' + data.carbon + '</div></div>' +
+      '</div>' +
+      '<ul class="fert-log">' + data.fert.map(f => '<li><span>' + f[0] + '</span><span>' + f[1] + '</span></li>').join('') + '</ul>';
+  }
+
+  btn.addEventListener('click', () => render(input.value));
+  input.addEventListener('keydown', e => { if(e.key === 'Enter') render(input.value); });
+  document.querySelectorAll('.trace-examples button').forEach(b => {
+    b.addEventListener('click', () => { input.value = b.dataset.code; render(b.dataset.code); });
+  });
+})();
+
+/* ---------- gallery + lightbox (unchanged pattern) ---------- */
+const galleryPhotos = [
+  { src: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1400&q=80", caption: "First light over the fields" },
+  { src: "https://images.unsplash.com/photo-1559743702-14419ca95ca4?w=1400&q=80", caption: "Maize ready for storage after the June harvest" },
+  { src: "https://images.unsplash.com/photo-1721845596423-49b6f5a7a025?w=1400&q=80", caption: "Herd moved to fresh paddock" },
+  { src: "https://images.unsplash.com/photo-1757627550652-30788bfce978?w=1400&q=80", caption: "Vegetable crates ahead of market day" },
+  { src: "https://images.unsplash.com/photo-1715360378677-d6375ac03dbf?w=1400&q=80", caption: "Preparing ground before the rains" },
+  { src: "https://images.unsplash.com/photo-1594282486552-05b4d80fbb9f?w=1400&q=80", caption: "Cabbage rows ready for the local market" },
+  { src: "https://images.unsplash.com/photo-1567892737950-30c4db37cd89?w=1400&q=80", caption: "Groundnuts sorted after harvest" },
+  { src: "https://images.unsplash.com/photo-1561635741-c416a5193b6e?w=1400&q=80", caption: "Freshly lifted sweet potatoes" }
+];
+
+const grid = document.getElementById('galleryGrid');
+galleryPhotos.forEach((photo, i) => {
+  const item = document.createElement('div');
+  item.className = 'gallery-item';
+  item.innerHTML = `<img src="${photo.src.replace('w=1400','w=500')}" alt="${photo.caption}"><div class="gcap">${photo.caption}</div>`;
+  item.addEventListener('click', () => openLightbox(i));
+  grid.appendChild(item);
+});
+
+const lightbox = document.getElementById('lightbox');
+const lbImage = document.getElementById('lbImage');
+const lbCaption = document.getElementById('lbCaption');
+let currentIndex = 0;
+
+function openLightbox(index){ currentIndex = index; updateLightbox(); lightbox.classList.add('open'); }
+function updateLightbox(){
+  const photo = galleryPhotos[currentIndex];
+  const thumb = photo.src.replace('w=1400', 'w=500');
+  lbImage.src = thumb; lbImage.alt = photo.caption; lbImage.classList.add('loading');
+  lbCaption.textContent = photo.caption;
+  const fullRes = new Image();
+  fullRes.onload = () => { lbImage.src = photo.src; lbImage.classList.remove('loading'); };
+  fullRes.src = photo.src;
+}
+function closeLightbox(){ lightbox.classList.remove('open'); }
+function showNext(){ currentIndex = (currentIndex + 1) % galleryPhotos.length; updateLightbox(); }
+function showPrev(){ currentIndex = (currentIndex - 1 + galleryPhotos.length) % galleryPhotos.length; updateLightbox(); }
+
+document.getElementById('lbClose').addEventListener('click', closeLightbox);
+document.getElementById('lbNext').addEventListener('click', showNext);
+document.getElementById('lbPrev').addEventListener('click', showPrev);
+lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => {
+  if(!lightbox.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLightbox();
+  if(e.key === 'ArrowRight') showNext();
+  if(e.key === 'ArrowLeft') showPrev();
+});
+
+/* ---------- contact form (unchanged pattern) ---------- */
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+contactForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = contactForm.querySelector('button');
+  submitBtn.disabled = true;
+  formStatus.textContent = 'Sending...'; formStatus.className = 'form-status';
+  try {
+    const response = await fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' } });
+    if (response.ok) {
+      formStatus.textContent = "Thanks, we've received your message and will be in touch soon.";
+      formStatus.className = 'form-status ok'; contactForm.reset();
+    } else {
+      formStatus.textContent = 'Something went wrong. Please try WhatsApp instead.';
       formStatus.className = 'form-status err';
     }
-    submitBtn.disabled = false;
-  });
+  } catch (err) {
+    formStatus.textContent = 'Network error. Please try WhatsApp instead.';
+    formStatus.className = 'form-status err';
+  }
+  submitBtn.disabled = false;
+});
 </script>
 </body>
 </html>
